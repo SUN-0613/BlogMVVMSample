@@ -15,6 +15,17 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <TextBox Grid.Row="0" Text="{Binding Text}" />
-        <Button Grid.Row="1" Content="Input Text" Click="Button_Click" />
+        
+        <!-- コードビハインドでクリック処理
+            <Button Grid.Row="1" Content="Input Text" Click="Button_Click" />
+        -->
+        
+        <!-- ViewModelでクリック処理 -->
+        <Button Grid.Row="1" Content="Input Text">
+            <Button.InputBindings>
+                <MouseBinding Command="{Binding ButtonClickCommand}" MouseAction="LeftClick" />
+            </Button.InputBindings>
+        </Button>
+        
     </Grid>
 </Window>

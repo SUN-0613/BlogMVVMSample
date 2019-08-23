@@ -66,6 +66,7 @@
     <Compile Include="Forms\View\TextBoxView.xaml.cs">
       <DependentUpon>TextBoxView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MVVM\DelegateCommand.cs" />
     <Compile Include="MVVM\ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

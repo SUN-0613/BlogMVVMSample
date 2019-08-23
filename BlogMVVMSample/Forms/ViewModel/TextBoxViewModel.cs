@@ -16,7 +16,26 @@ namespace BlogMVVMSample.Forms.ViewModel
         /// </summary>
         public string Text { get; set; }
 
+        /// <summary>
+        /// ボタンクリック処理コマンドプロパティ
+        /// </summary>
+        public DelegateCommand ButtonClickCommand { get; }
+
         #endregion
+
+        /// <summary>
+        /// ViewModel
+        /// </summary>
+        public TextBoxViewModel()
+        {
+
+            // コマンドの設定
+            ButtonClickCommand = new DelegateCommand(
+                () => { InputTextBox(); },  // 実行メソッド
+                () => { return true; }      // 実行メソッド許可
+                );
+
+        }
 
         /// <summary>
         /// TextBoxにHello World!を表示
