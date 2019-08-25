@@ -13,15 +13,22 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBox Grid.Row="0" Text="{Binding Text}" />
         
+        <!-- 値を入力する度にViewModelのプロパティ値を更新する -->
+        <TextBox Grid.Row="0" Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" />
+
+        <TextBlock Grid.Row="1" Text="{Binding Text}" />
+        <Label Grid.Row="2" Content="{Binding Text}" />
+
         <!-- コードビハインドでクリック処理
             <Button Grid.Row="1" Content="Input Text" Click="Button_Click" />
         -->
         
         <!-- ViewModelでクリック処理 -->
-        <Button Grid.Row="1" Content="Input Text">
+        <Button Grid.Row="3" Content="Input Text">
             <Button.InputBindings>
                 <MouseBinding Command="{Binding ButtonClickCommand}" MouseAction="LeftClick" />
             </Button.InputBindings>
