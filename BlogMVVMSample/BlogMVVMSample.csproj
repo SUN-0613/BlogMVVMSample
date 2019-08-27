@@ -61,11 +61,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converter\JobStatusConverter.cs" />
+    <Compile Include="Data\JobStatus.cs" />
     <Compile Include="Data\Student.cs" />
+    <Compile Include="Forms\Model\ComboBox2Model.cs" />
     <Compile Include="Forms\Model\ComboBoxModel.cs" />
     <Compile Include="Forms\Model\TextBoxModel.cs" />
+    <Compile Include="Forms\ViewModel\ComboBox2ViewModel.cs" />
     <Compile Include="Forms\ViewModel\ComboBoxViewModel.cs" />
     <Compile Include="Forms\ViewModel\TextBoxViewModel.cs" />
+    <Compile Include="Forms\View\ComboBox2View.xaml.cs">
+      <DependentUpon>ComboBox2View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\View\ComboBoxView.xaml.cs">
       <DependentUpon>ComboBoxView.xaml</DependentUpon>
     </Compile>
@@ -100,6 +107,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Forms\View\ComboBox2View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\View\ComboBoxView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -109,5 +120,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
