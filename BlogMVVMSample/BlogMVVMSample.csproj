@@ -61,8 +61,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Student.cs" />
+    <Compile Include="Forms\Model\ComboBoxModel.cs" />
     <Compile Include="Forms\Model\TextBoxModel.cs" />
+    <Compile Include="Forms\ViewModel\ComboBoxViewModel.cs" />
     <Compile Include="Forms\ViewModel\TextBoxViewModel.cs" />
+    <Compile Include="Forms\View\ComboBoxView.xaml.cs">
+      <DependentUpon>ComboBoxView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\View\TextBoxView.xaml.cs">
       <DependentUpon>TextBoxView.xaml</DependentUpon>
     </Compile>
@@ -94,6 +100,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Forms\View\ComboBoxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\View\TextBoxView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
