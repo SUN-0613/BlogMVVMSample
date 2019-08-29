@@ -24,9 +24,10 @@ namespace BlogMVVMSample.Converter
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
 
-            if (value != null && parameter != null)
+            if (value is JobStatus selectedValue
+                && parameter is JobStatus specifiedValue)
             {
-                return value.ToString().Equals(parameter.ToString());
+                return selectedValue.Equals(specifiedValue);
             }
             else
             {
@@ -45,11 +46,7 @@ namespace BlogMVVMSample.Converter
         /// <returns>enum</returns>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-
-            if ((value == null || parameter == null) || !(bool)value) return Binding.DoNothing;
-
-            return Enum.Parse(targetType, parameter.ToString());
-
+            throw new NotImplementedException();
         }
 
     }
