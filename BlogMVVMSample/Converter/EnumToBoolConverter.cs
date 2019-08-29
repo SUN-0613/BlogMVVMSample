@@ -9,7 +9,7 @@ namespace BlogMVVMSample.Converter
     /// <summary>
     /// enumの対象valueが選択されているかbool判定
     /// </summary>
-    [ValueConversion(typeof(JobStatus), typeof(string))]
+    [ValueConversion(typeof(JobStatus), typeof(bool))]
     public class EnumToBoolConverter : IValueConverter
     {
 
