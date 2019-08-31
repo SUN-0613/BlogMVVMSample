@@ -5,18 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:BlogMVVMSample.Forms.ViewModel"
         xmlns:data="clr-namespace:BlogMVVMSample.Data"
+        xmlns:custom="clr-namespace:BlogMVVMSample.Custom"
         mc:Ignorable="d"
         Title="ListView" Height="450" Width="800">
     <Window.DataContext>
         <vm:ListViewModel />
     </Window.DataContext>
     <Grid>
-        <TreeView ItemsSource="{Binding Paths}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="25" />
+        </Grid.RowDefinitions>
+        
+        <custom:CustomTreeView Grid.Row="0" ItemsSource="{Binding Paths}" CustomSelectedItem="{Binding SelectedPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate DataType="data:PathInfo" ItemsSource="{Binding Children}">
                     <TextBlock Text="{Binding Name}" />
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
-        </TreeView>
+        </custom:CustomTreeView>
+
+        <TextBlock Grid.Row="1" Text="{Binding FullPath}" VerticalAlignment="Center" />
+
     </Grid>
 </Window>

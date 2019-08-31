@@ -28,6 +28,25 @@ namespace BlogMVVMSample.Forms.ViewModel
             set { _Model.Paths = value; }
         }
 
+        /// <summary>
+        /// 選択パス
+        /// </summary>
+        public PathInfo SelectedPath
+        {
+            get { return _Model.SelectedPath; }
+            set
+            {
+                _Model.SelectedPath = value;
+                CallPropertyChanged();
+                CallPropertyChanged(nameof(FullPath));
+            }
+        }
+
+        /// <summary>
+        /// 選択パスのフルパス
+        /// </summary>
+        public string FullPath {  get { return _Model.SelectedPath.FullPath; } }
+
         #endregion
 
     }

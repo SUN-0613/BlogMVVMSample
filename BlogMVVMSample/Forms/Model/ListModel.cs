@@ -19,6 +19,11 @@ namespace BlogMVVMSample.Forms.Model
         /// </summary>
         public ObservableCollection<PathInfo> Paths;
 
+        /// <summary>
+        /// 選択パス
+        /// </summary>
+        public PathInfo SelectedPath;
+
         #endregion
 
         /// <summary>
