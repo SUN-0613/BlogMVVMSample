@@ -39,6 +39,7 @@ namespace BlogMVVMSample.Forms.ViewModel
                 _Model.SelectedPath = value;
                 CallPropertyChanged();
                 CallPropertyChanged(nameof(FullPath));
+                CallPropertyChanged(nameof(Files));
             }
         }
 
@@ -46,6 +47,15 @@ namespace BlogMVVMSample.Forms.ViewModel
         /// 選択パスのフルパス
         /// </summary>
         public string FullPath {  get { return _Model.SelectedPath.FullPath; } }
+
+        /// <summary>
+        /// 選択パス直下のファイル一覧
+        /// </summary>
+        public ObservableCollection<FileInfo> Files
+        {
+            get { return _Model.Files; }
+            set { _Model.Files = value; }
+        }
 
         #endregion
 

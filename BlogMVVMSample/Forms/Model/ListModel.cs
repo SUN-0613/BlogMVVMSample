@@ -1,6 +1,7 @@
 ﻿using BlogMVVMSample.Data;
 using System;
 using System.Collections.ObjectModel;
+using IO = System.IO;
 using System.Threading.Tasks;
 
 namespace BlogMVVMSample.Forms.Model
@@ -22,9 +23,27 @@ namespace BlogMVVMSample.Forms.Model
         /// <summary>
         /// 選択パス
         /// </summary>
-        public PathInfo SelectedPath;
+        public PathInfo SelectedPath
+        {
+            get { return _SelectedPath; }
+            set
+            {
+                _SelectedPath = value;
+                MakeFiles();
+            }
+        }
+
+        /// <summary>
+        /// 選択パス直下のファイル一覧
+        /// </summary>
+        public ObservableCollection<FileInfo> Files;
 
         #endregion
+
+        /// <summary>
+        /// 選択パス
+        /// </summary>
+        private PathInfo _SelectedPath;
 
         /// <summary>
         /// Model
@@ -57,6 +76,39 @@ namespace BlogMVVMSample.Forms.Model
                 catch { }
 
             });
+
+        }
+
+        /// <summary>
+        /// 選択パス直下のファイル一覧を取得
+        /// </summary>
+        private void MakeFiles()
+        {
+
+            if (Files == null)
+            {
+                Files = new ObservableCollection<FileInfo>();
+            }
+            else
+            {
+                Files.Clear();
+            }
+
+            if (IO::Directory.Exists(SelectedPath.FullPath))
+            {
+
+                try
+                {
+
+                    foreach (var filePath in IO::Directory.EnumerateFiles(SelectedPath.FullPath, "*", IO::SearchOption.TopDirectoryOnly))
+                    {
+                        Files.Add(new FileInfo(filePath));
+                    }
+
+                }
+                catch { }
+
+            }
 
         }
 
