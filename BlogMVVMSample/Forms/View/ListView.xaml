@@ -29,22 +29,38 @@
             </TreeView.ItemTemplate>
         </custom:CustomTreeView>
 
-        <ListBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Files}" >
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="190" />
-                            <ColumnDefinition Width="190" />
-                            <ColumnDefinition Width="190" />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="{Binding Name}" Padding="3,0" />
-                        <TextBlock Grid.Column="1" Text="{Binding Size, StringFormat={}{0:N0} Byte}" TextAlignment="Right" Padding="3,0" />
-                        <TextBlock Grid.Column="2" Text="{Binding CreationTime, StringFormat=yyyy/MM/dd HH:mm:ss}" Padding="3,0"/>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <ListView Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Files}" >
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="名前" Width="190" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="サイズ" Width="190" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate >
+                                <TextBlock Text="{Binding Size, StringFormat={}{0:N0} Byte}" TextAlignment="Right" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="作成日時" Width="190" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding CreationTime, StringFormat=yyyy/MM/dd HH:mm:ss}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
         <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding FullPath}" VerticalAlignment="Center" />
 
