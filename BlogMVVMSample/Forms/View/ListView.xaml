@@ -14,10 +14,12 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
+            <RowDefinition Height="2" />
             <RowDefinition Height="25" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2" />
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
         
@@ -29,7 +31,9 @@
             </TreeView.ItemTemplate>
         </custom:CustomTreeView>
 
-        <ListView Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Files}" >
+        <GridSplitter Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ResizeDirection="Columns" />
+
+        <ListView Grid.Row="0" Grid.Column="2" ItemsSource="{Binding Files}" >
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -62,7 +66,9 @@
             </ListView.View>
         </ListView>
 
-        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding FullPath}" VerticalAlignment="Center" />
+        <GridSplitter Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ResizeDirection="Rows" />
+        
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="3" Text="{Binding FullPath}" VerticalAlignment="Center" />
 
     </Grid>
 </Window>
