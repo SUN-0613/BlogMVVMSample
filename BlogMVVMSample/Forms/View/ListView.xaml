@@ -6,8 +6,12 @@
         xmlns:vm="clr-namespace:BlogMVVMSample.Forms.ViewModel"
         xmlns:data="clr-namespace:BlogMVVMSample.Data"
         xmlns:custom="clr-namespace:BlogMVVMSample.Custom"
+        xmlns:conv="clr-namespace:BlogMVVMSample.Converter"
         mc:Ignorable="d"
         Title="ListView" Height="450" Width="800">
+    <Window.Resources>
+        <conv:BitmapConverter x:Key="bitmapConvert" />
+    </Window.Resources>
     <Window.DataContext>
         <vm:ListViewModel />
     </Window.DataContext>
@@ -20,7 +24,9 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="2" />
-            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         
         <custom:CustomTreeView Grid.Row="0" Grid.Column="0" ItemsSource="{Binding Paths}" CustomSelectedItem="{Binding SelectedPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
@@ -33,7 +39,7 @@
 
         <GridSplitter Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ResizeDirection="Columns" />
 
-        <ListView Grid.Row="0" Grid.Column="2" ItemsSource="{Binding Files}" >
+        <ListView Grid.Row="0" Grid.Column="2" ItemsSource="{Binding Files}" SelectedItem="{Binding SelectedFile}" SelectionMode="Single" >
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -65,6 +71,37 @@
                 </GridView>
             </ListView.View>
         </ListView>
+
+        <GridSplitter Grid.Row="0" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ResizeDirection="Columns" />
+
+        <!-- 詳細ウィンドウ -->
+        <Grid Grid.Row="0" Grid.Column="4" Height="180" VerticalAlignment="Top" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="{Binding SelectedFile.Name}" VerticalAlignment="Center" FontSize="18" />
+            
+            <Image Grid.Row="1" Grid.ColumnSpan="2" Source="{Binding SelectedFile.BitmapImage, Converter={StaticResource bitmapConvert}}" />
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="更新日時:" VerticalAlignment="Center" TextAlignment="Right" Padding="2,0" Foreground="Gray" />
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SelectedFile.LastWriteTime, StringFormat=yyyy/MM/dd HH:mm:ss}" VerticalAlignment="Center" TextAlignment="Left" Padding="2,0" />
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="サイズ:" VerticalAlignment="Center" TextAlignment="Right" Padding="2,0" Foreground="Gray" />
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding SelectedFile.Size, StringFormat={}{0:N0} Byte}" VerticalAlignment="Center" TextAlignment="Left" Padding="2,0" />
+
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="作成日時:" VerticalAlignment="Center" TextAlignment="Right" Padding="2,0" Foreground="Gray" />
+            <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding SelectedFile.CreationTime, StringFormat=yyyy/MM/dd HH:mm:ss}" VerticalAlignment="Center" TextAlignment="Left" Padding="2,0" />
+
+        </Grid>
 
         <GridSplitter Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ResizeDirection="Rows" />
         

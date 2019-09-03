@@ -57,6 +57,24 @@ namespace BlogMVVMSample.Forms.ViewModel
             set { _Model.Files = value; }
         }
 
+        /// <summary>
+        /// ファイル一覧で選択したファイル
+        /// </summary>
+        public FileInfo SelectedFile
+        {
+            get { return _Model.SelectedFile; }
+            set
+            {
+                _Model.SelectedFile = value;
+                CallPropertyChanged();
+                CallPropertyChanged(nameof(FileInfo.Name));
+                CallPropertyChanged(nameof(FileInfo.BitmapImage));
+                CallPropertyChanged(nameof(FileInfo.LastWriteTime));
+                CallPropertyChanged(nameof(FileInfo.Size));
+                CallPropertyChanged(nameof(FileInfo.CreationTime));
+            }
+        }
+
         #endregion
 
     }

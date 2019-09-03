@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BlogMVVMSample.MVVM;
+using System;
+using System.Drawing;   // 参照にSystem.Drawingを追加
 using IO = System.IO;
 
 namespace BlogMVVMSample.Data
@@ -7,7 +9,7 @@ namespace BlogMVVMSample.Data
     /// <summary>
     /// ファイル情報
     /// </summary>
-    public class FileInfo
+    public class FileInfo : ViewModelBase
     {
 
         #region Property
@@ -26,6 +28,16 @@ namespace BlogMVVMSample.Data
         /// 作成日時
         /// </summary>
         public DateTime CreationTime { get; set; }
+
+        /// <summary>
+        /// 更新日時
+        /// </summary>
+        public DateTime LastWriteTime { get; set; }
+
+        /// <summary>
+        /// ファイルアイコン画像イメージ
+        /// </summary>
+        public Bitmap BitmapImage { get; set; }
 
         #endregion
 
@@ -51,6 +63,10 @@ namespace BlogMVVMSample.Data
                 Name = fileInfo.Name;
                 Size = fileInfo.Length;
                 CreationTime = fileInfo.CreationTime;
+                LastWriteTime = fileInfo.LastWriteTime;
+
+                var icon = Icon.ExtractAssociatedIcon(FullPath);
+                BitmapImage = icon.ToBitmap();
 
             }
 

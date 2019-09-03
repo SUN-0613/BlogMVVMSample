@@ -38,6 +38,11 @@ namespace BlogMVVMSample.Forms.Model
         /// </summary>
         public ObservableCollection<FileInfo> Files;
 
+        /// <summary>
+        /// ファイル一覧で選択したファイル
+        /// </summary>
+        public FileInfo SelectedFile;
+
         #endregion
 
         /// <summary>
