@@ -39,7 +39,7 @@
 
         <GridSplitter Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ResizeDirection="Columns" />
 
-        <ListView Grid.Row="0" Grid.Column="2" ItemsSource="{Binding Files}" SelectedItem="{Binding SelectedFile}" SelectionMode="Single" >
+        <custom:CustomListView Grid.Row="0" Grid.Column="2" ItemsSource="{Binding Files}" CustomSelectedItems="{Binding SelectedFiles}" SelectionMode="Extended" >
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -70,39 +70,45 @@
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
-        </ListView>
+        </custom:CustomListView>
 
         <GridSplitter Grid.Row="0" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ResizeDirection="Columns" />
 
         <!-- 詳細ウィンドウ -->
-        <Grid Grid.Row="0" Grid.Column="4" Height="180" VerticalAlignment="Top" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="3*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="3*" />
-            </Grid.ColumnDefinitions>
+        <ListBox Grid.Row="0" Grid.Column="4" ItemsSource="{Binding SelectedFiles}" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="3*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="{Binding SelectedFile.Name}" VerticalAlignment="Center" FontSize="18" />
-            
-            <Image Grid.Row="1" Grid.ColumnSpan="2" Source="{Binding SelectedFile.BitmapImage, Converter={StaticResource bitmapConvert}}" />
+                        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="{Binding Name}" VerticalAlignment="Center" FontSize="18" />
 
-            <TextBlock Grid.Row="2" Grid.Column="0" Text="更新日時:" VerticalAlignment="Center" TextAlignment="Right" Padding="2,0" Foreground="Gray" />
-            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SelectedFile.LastWriteTime, StringFormat=yyyy/MM/dd HH:mm:ss}" VerticalAlignment="Center" TextAlignment="Left" Padding="2,0" />
+                        <Image Grid.Row="1" Grid.ColumnSpan="2" Source="{Binding BitmapImage, Converter={StaticResource bitmapConvert}}" />
 
-            <TextBlock Grid.Row="3" Grid.Column="0" Text="サイズ:" VerticalAlignment="Center" TextAlignment="Right" Padding="2,0" Foreground="Gray" />
-            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding SelectedFile.Size, StringFormat={}{0:N0} Byte}" VerticalAlignment="Center" TextAlignment="Left" Padding="2,0" />
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="更新日時:" VerticalAlignment="Center" TextAlignment="Right" Padding="2,0" Foreground="Gray" />
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding LastWriteTime, StringFormat=yyyy/MM/dd HH:mm:ss}" VerticalAlignment="Center" TextAlignment="Left" Padding="2,0" />
 
-            <TextBlock Grid.Row="4" Grid.Column="0" Text="作成日時:" VerticalAlignment="Center" TextAlignment="Right" Padding="2,0" Foreground="Gray" />
-            <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding SelectedFile.CreationTime, StringFormat=yyyy/MM/dd HH:mm:ss}" VerticalAlignment="Center" TextAlignment="Left" Padding="2,0" />
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="サイズ:" VerticalAlignment="Center" TextAlignment="Right" Padding="2,0" Foreground="Gray" />
+                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Size, StringFormat={}{0:N0} Byte}" VerticalAlignment="Center" TextAlignment="Left" Padding="2,0" />
 
-        </Grid>
+                        <TextBlock Grid.Row="4" Grid.Column="0" Text="作成日時:" VerticalAlignment="Center" TextAlignment="Right" Padding="2,0" Foreground="Gray" />
+                        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding CreationTime, StringFormat=yyyy/MM/dd HH:mm:ss}" VerticalAlignment="Center" TextAlignment="Left" Padding="2,0" />
 
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
         <GridSplitter Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ResizeDirection="Rows" />
         
         <TextBlock Grid.Row="2" Grid.ColumnSpan="3" Text="{Binding FullPath}" VerticalAlignment="Center" />

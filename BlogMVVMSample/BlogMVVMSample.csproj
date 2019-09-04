@@ -65,6 +65,7 @@
     <Compile Include="Converter\BitmapConverter.cs" />
     <Compile Include="Converter\EnumToBoolConverter.cs" />
     <Compile Include="Converter\JobStatusConverter.cs" />
+    <Compile Include="Custom\ListView.cs" />
     <Compile Include="Custom\TreeView.cs" />
     <Compile Include="Data\FileInfo.cs" />
     <Compile Include="Data\JobStatus.cs" />

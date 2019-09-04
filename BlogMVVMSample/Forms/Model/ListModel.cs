@@ -1,5 +1,6 @@
 ﻿using BlogMVVMSample.Data;
 using System;
+using System.Collections;
 using System.Collections.ObjectModel;
 using IO = System.IO;
 using System.Threading.Tasks;
@@ -39,9 +40,9 @@ namespace BlogMVVMSample.Forms.Model
         public ObservableCollection<FileInfo> Files;
 
         /// <summary>
-        /// ファイル一覧で選択したファイル
+        /// ファイル一覧で選択したファイル一覧
         /// </summary>
-        public FileInfo SelectedFile;
+        public IList SelectedFiles;
 
         #endregion
 

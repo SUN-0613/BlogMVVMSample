@@ -1,5 +1,6 @@
 ﻿using BlogMVVMSample.Data;
 using BlogMVVMSample.MVVM;
+using System.Collections;
 using System.Collections.ObjectModel;
 
 namespace BlogMVVMSample.Forms.ViewModel
@@ -60,18 +61,13 @@ namespace BlogMVVMSample.Forms.ViewModel
         /// <summary>
         /// ファイル一覧で選択したファイル
         /// </summary>
-        public FileInfo SelectedFile
+        public IList SelectedFiles
         {
-            get { return _Model.SelectedFile; }
+            get { return _Model.SelectedFiles; }
             set
             {
-                _Model.SelectedFile = value;
+                _Model.SelectedFiles = value;
                 CallPropertyChanged();
-                CallPropertyChanged(nameof(FileInfo.Name));
-                CallPropertyChanged(nameof(FileInfo.BitmapImage));
-                CallPropertyChanged(nameof(FileInfo.LastWriteTime));
-                CallPropertyChanged(nameof(FileInfo.Size));
-                CallPropertyChanged(nameof(FileInfo.CreationTime));
             }
         }
 
