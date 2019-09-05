@@ -13,7 +13,7 @@ namespace BlogMVVMSample
 
             base.OnStartup(e);
 
-            new Forms.View.ListView().ShowDialog();
+            new Forms.View.MessageBoxView().ShowDialog();
 
         }
 

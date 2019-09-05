@@ -75,11 +75,13 @@
     <Compile Include="Forms\Model\ComboBox2Model.cs" />
     <Compile Include="Forms\Model\ComboBoxModel.cs" />
     <Compile Include="Forms\Model\ListModel.cs" />
+    <Compile Include="Forms\Model\MessageBoxModel.cs" />
     <Compile Include="Forms\Model\TextBoxModel.cs" />
     <Compile Include="Forms\ViewModel\CheckBoxViewModel.cs" />
     <Compile Include="Forms\ViewModel\ComboBox2ViewModel.cs" />
     <Compile Include="Forms\ViewModel\ComboBoxViewModel.cs" />
     <Compile Include="Forms\ViewModel\ListViewModel.cs" />
+    <Compile Include="Forms\ViewModel\MessageBoxViewModel.cs" />
     <Compile Include="Forms\ViewModel\TextBoxViewModel.cs" />
     <Compile Include="Forms\View\CheckBoxView.xaml.cs">
       <DependentUpon>CheckBoxView.xaml</DependentUpon>
@@ -92,6 +94,9 @@
     </Compile>
     <Compile Include="Forms\View\ListView.xaml.cs">
       <DependentUpon>ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\View\MessageBoxView.xaml.cs">
+      <DependentUpon>MessageBoxView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\View\RadioButton.xaml.cs">
       <DependentUpon>RadioButton.xaml</DependentUpon>
@@ -140,6 +145,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\MessageBoxView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
