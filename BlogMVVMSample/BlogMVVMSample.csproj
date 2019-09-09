@@ -79,6 +79,7 @@
     <Compile Include="Data\MessageBox.cs" />
     <Compile Include="Data\PathInfo.cs" />
     <Compile Include="Data\Student.cs" />
+    <Compile Include="Forms\Model\CalendarModel.cs" />
     <Compile Include="Forms\Model\CheckBoxModel.cs" />
     <Compile Include="Forms\Model\ComboBox2Model.cs" />
     <Compile Include="Forms\Model\ComboBoxModel.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Forms\Model\MessageBox2Model.cs" />
     <Compile Include="Forms\Model\MessageBoxModel.cs" />
     <Compile Include="Forms\Model\TextBoxModel.cs" />
+    <Compile Include="Forms\ViewModel\CalendarViewModel.cs" />
     <Compile Include="Forms\ViewModel\CheckBoxViewModel.cs" />
     <Compile Include="Forms\ViewModel\ComboBox2ViewModel.cs" />
     <Compile Include="Forms\ViewModel\ComboBoxViewModel.cs" />
@@ -93,6 +95,9 @@
     <Compile Include="Forms\ViewModel\MessageBox2ViewModel.cs" />
     <Compile Include="Forms\ViewModel\MessageBoxViewModel.cs" />
     <Compile Include="Forms\ViewModel\TextBoxViewModel.cs" />
+    <Compile Include="Forms\View\CalendarView.xaml.cs">
+      <DependentUpon>CalendarView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\View\CheckBoxView.xaml.cs">
       <DependentUpon>CheckBoxView.xaml</DependentUpon>
     </Compile>
@@ -146,6 +151,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Forms\View\CalendarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\View\CheckBoxView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
