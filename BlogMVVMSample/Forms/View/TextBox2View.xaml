@@ -5,7 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="TextBox2View" Height="250" Width="500">
-    <!-- Window.ResourcesおよびStyleを削除 -->
+    <Window.Resources>
+
+        <!-- TextBox用Styleを保存しているResourceDictionaryを参照 -->
+        <ResourceDictionary Source="/Dictionary/TextBox2Dictionary.xaml" />
+        
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />

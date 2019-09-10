@@ -156,6 +156,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Dictionary\TextBox2Dictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\View\CalendarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
