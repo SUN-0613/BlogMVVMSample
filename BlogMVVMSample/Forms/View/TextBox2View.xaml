@@ -5,36 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="TextBox2View" Height="250" Width="500">
-    <Window.Resources >
-        
-        <!-- Text内容を右寄りに表示 -->
-        <Style x:Key="contentRight" TargetType="TextBox" >
-            
-            <!-- サイズ指定 -->
-            <Setter Property="Height" Value="30" />
-            <Setter Property="Width" Value="120" />
-            
-            <!-- 表示位置指定 -->
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            
-            <!-- テキストの表示位置指定 -->
-            <Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="HorizontalContentAlignment" Value="Right" />
-            
-        </Style>
-
-        <!-- 右寄り表示の設定を元にして左寄り表示にする -->
-        <Style x:Key="contentLeft" TargetType="TextBox" BasedOn="{StaticResource contentRight}" >
-            <Setter Property="HorizontalContentAlignment" Value="Left" />
-        </Style>
-
-        <!-- 右寄り表示の設定を元にして中央表示にする -->
-        <Style x:Key="contentCenter" TargetType="TextBox" BasedOn="{StaticResource contentRight}" >
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
-        </Style>
-
-    </Window.Resources>
+    <!-- Window.ResourcesおよびStyleを削除 -->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
