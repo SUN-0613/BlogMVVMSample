@@ -7,8 +7,8 @@
         Title="TextBox2View" Height="250" Width="500">
     <Window.Resources >
         
-        <!-- 本Window内の全てのTextBoxに適用する -->
-        <Style TargetType="TextBox">
+        <!-- Text内容を右寄りに表示 -->
+        <Style x:Key="contentRight" TargetType="TextBox" >
             
             <!-- サイズ指定 -->
             <Setter Property="Height" Value="30" />
@@ -24,6 +24,16 @@
             
         </Style>
 
+        <!-- 右寄り表示の設定を元にして左寄り表示にする -->
+        <Style x:Key="contentLeft" TargetType="TextBox" BasedOn="{StaticResource contentRight}" >
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+        </Style>
+
+        <!-- 右寄り表示の設定を元にして中央表示にする -->
+        <Style x:Key="contentCenter" TargetType="TextBox" BasedOn="{StaticResource contentRight}" >
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+        </Style>
+
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -37,17 +47,20 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <TextBox Grid.Row="0" Grid.Column="0" Text="１行１列" />
-        <TextBox Grid.Row="0" Grid.Column="1" Text="１行２列" />
-        <TextBox Grid.Row="0" Grid.Column="2" Text="１行３列" />
+        <!-- 右寄り表示のStyleを反映 -->
+        <TextBox Grid.Row="0" Grid.Column="0" Text="１行１列" Style="{StaticResource contentRight}" />
+        <TextBox Grid.Row="0" Grid.Column="1" Text="１行２列" Style="{StaticResource contentRight}" />
+        <TextBox Grid.Row="0" Grid.Column="2" Text="１行３列" Style="{StaticResource contentRight}" />
 
-        <TextBox Grid.Row="1" Grid.Column="0" Text="２行１列" />
-        <TextBox Grid.Row="1" Grid.Column="1" Text="２行２列" />
-        <TextBox Grid.Row="1" Grid.Column="2" Text="２行３列" />
+        <!-- 中央表示のStyleを反映 -->
+        <TextBox Grid.Row="1" Grid.Column="0" Text="２行１列" Style="{StaticResource contentCenter}" />
+        <TextBox Grid.Row="1" Grid.Column="1" Text="２行２列" Style="{StaticResource contentCenter}" />
+        <TextBox Grid.Row="1" Grid.Column="2" Text="２行３列" Style="{StaticResource contentCenter}" />
 
-        <TextBox Grid.Row="2" Grid.Column="0" Text="３行１列" />
-        <TextBox Grid.Row="2" Grid.Column="1" Text="３行２列" />
-        <TextBox Grid.Row="2" Grid.Column="2" Text="３行３列" />
+        <!-- 左寄り表示のStyleを反映 -->
+        <TextBox Grid.Row="2" Grid.Column="0" Text="３行１列" Style="{StaticResource contentLeft}" />
+        <TextBox Grid.Row="2" Grid.Column="1" Text="３行２列" Style="{StaticResource contentLeft}" />
+        <TextBox Grid.Row="2" Grid.Column="2" Text="３行３列" Style="{StaticResource contentLeft}" />
 
     </Grid>
 </Window>
