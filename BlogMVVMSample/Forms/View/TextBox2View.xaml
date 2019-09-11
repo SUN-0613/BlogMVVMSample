@@ -7,9 +7,27 @@
         Title="TextBox2View" Height="250" Width="500">
     <Window.Resources>
 
-        <!-- TextBox用Styleを保存しているResourceDictionaryを参照 -->
-        <ResourceDictionary Source="/Dictionary/TextBox2Dictionary.xaml" />
-        
+        <!-- ResourceDictionaryの参照設定 -->
+        <ResourceDictionary>
+
+            <!-- 複数のResourceDictionaryを結合 -->
+            <ResourceDictionary.MergedDictionaries>
+
+                <!-- TextBox用Styleを保存しているResourceDictionaryを参照 -->
+                <ResourceDictionary Source="/Dictionary/TextBox2Dictionary.xaml" />
+
+                <!-- ResourceDictionaryのサンプルを追加参照 -->
+                <ResourceDictionary Source="/Dictionary/DictionarySample.xaml" />
+
+                <!-- 参照したStyleを元に背景色を黄色に変更する -->
+                <ResourceDictionary>
+                    <Style x:Key="backgroundYellow" TargetType="TextBox" BasedOn="{StaticResource contentRight}">
+                        <Setter Property="Background" Value="Yellow" />
+                    </Style>
+                </ResourceDictionary>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -23,17 +41,21 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <!-- 右寄り表示のStyleを反映 -->
+        <!-- TextBox2Dictionary.xamlから右寄り表示のStyleを反映 -->
         <TextBox Grid.Row="0" Grid.Column="0" Text="１行１列" Style="{StaticResource contentRight}" />
         <TextBox Grid.Row="0" Grid.Column="1" Text="１行２列" Style="{StaticResource contentRight}" />
-        <TextBox Grid.Row="0" Grid.Column="2" Text="１行３列" Style="{StaticResource contentRight}" />
 
-        <!-- 中央表示のStyleを反映 -->
+        <!-- 追加した背景色：黄色のStyleを反映 -->
+        <TextBox Grid.Row="0" Grid.Column="2" Text="１行３列" Style="{StaticResource backgroundYellow}" />
+
+        <!-- TextBox2Dictionary.xamlから中央表示のStyleを反映 -->
         <TextBox Grid.Row="1" Grid.Column="0" Text="２行１列" Style="{StaticResource contentCenter}" />
         <TextBox Grid.Row="1" Grid.Column="1" Text="２行２列" Style="{StaticResource contentCenter}" />
-        <TextBox Grid.Row="1" Grid.Column="2" Text="２行３列" Style="{StaticResource contentCenter}" />
 
-        <!-- 左寄り表示のStyleを反映 -->
+        <!-- DictionarySample.xamlのStyleを反映 -->
+        <TextBox Grid.Row="1" Grid.Column="2" Text="２行３列" Style="{StaticResource controlLeft}" />
+
+        <!-- TextBox2Dictionary.xamlから左寄り表示のStyleを反映 -->
         <TextBox Grid.Row="2" Grid.Column="0" Text="３行１列" Style="{StaticResource contentLeft}" />
         <TextBox Grid.Row="2" Grid.Column="1" Text="３行２列" Style="{StaticResource contentLeft}" />
         <TextBox Grid.Row="2" Grid.Column="2" Text="３行３列" Style="{StaticResource contentLeft}" />
