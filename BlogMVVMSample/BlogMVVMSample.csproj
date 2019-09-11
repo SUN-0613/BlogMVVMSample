@@ -87,6 +87,7 @@
     <Compile Include="Forms\Model\MessageBox2Model.cs" />
     <Compile Include="Forms\Model\MessageBoxModel.cs" />
     <Compile Include="Forms\Model\TextBox2Model.cs" />
+    <Compile Include="Forms\Model\TextBox3Model.cs" />
     <Compile Include="Forms\Model\TextBoxModel.cs" />
     <Compile Include="Forms\ViewModel\CalendarViewModel.cs" />
     <Compile Include="Forms\ViewModel\CheckBoxViewModel.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="Forms\ViewModel\MessageBox2ViewModel.cs" />
     <Compile Include="Forms\ViewModel\MessageBoxViewModel.cs" />
     <Compile Include="Forms\ViewModel\TextBox2ViewModel.cs" />
+    <Compile Include="Forms\ViewModel\TextBox3ViewModel.cs" />
     <Compile Include="Forms\ViewModel\TextBoxViewModel.cs" />
     <Compile Include="Forms\View\CalendarView.xaml.cs">
       <DependentUpon>CalendarView.xaml</DependentUpon>
@@ -123,6 +125,9 @@
     </Compile>
     <Compile Include="Forms\View\TextBox2View.xaml.cs">
       <DependentUpon>TextBox2View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\View\TextBox3View.xaml.cs">
+      <DependentUpon>TextBox3View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\View\TextBoxView.xaml.cs">
       <DependentUpon>TextBoxView.xaml</DependentUpon>
@@ -197,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\TextBox2View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\TextBox3View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
