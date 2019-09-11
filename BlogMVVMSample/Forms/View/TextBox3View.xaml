@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:BlogMVVMSample.Forms.ViewModel"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:b="clr-namespace:BlogMVVMSample.Behaviors"
         mc:Ignorable="d"
         Title="TextBox3View" Height="250" Width="500">
     <Window.DataContext>
@@ -33,17 +35,53 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <TextBox Grid.Row="0" Grid.Column="0" Text="{Binding Numbers[0]}" />
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Numbers[1]}" />
-        <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Numbers[2]}" />
-        <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding Numbers[3]}" />
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Numbers[4]}" />
-        <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Numbers[5]}" />
-        <TextBox Grid.Row="2" Grid.Column="0" Text="{Binding Numbers[6]}" />
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Numbers[7]}" />
-        <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Numbers[8]}" />
+        <TextBox Grid.Row="0" Grid.Column="0" Text="{Binding Numbers[0]}" >
+            <i:Interaction.Behaviors>
+                <b:TextBoxMoveFocus />
+            </i:Interaction.Behaviors>
+        </TextBox>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Numbers[1]}" >
+            <i:Interaction.Behaviors>
+                <b:TextBoxMoveFocus />
+            </i:Interaction.Behaviors>
+        </TextBox>
+        <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Numbers[2]}" >
+            <i:Interaction.Behaviors>
+                <b:TextBoxMoveFocus />
+            </i:Interaction.Behaviors>
+        </TextBox>
+        <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding Numbers[3]}" >
+            <i:Interaction.Behaviors>
+                <b:TextBoxMoveFocus />
+            </i:Interaction.Behaviors>
+        </TextBox>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Numbers[4]}" >
+            <i:Interaction.Behaviors>
+                <b:TextBoxMoveFocus />
+            </i:Interaction.Behaviors>
+        </TextBox>
+        <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Numbers[5]}" >
+            <i:Interaction.Behaviors>
+                <b:TextBoxMoveFocus />
+            </i:Interaction.Behaviors>
+        </TextBox>
+        <TextBox Grid.Row="2" Grid.Column="0" Text="{Binding Numbers[6]}" >
+            <i:Interaction.Behaviors>
+                <b:TextBoxMoveFocus />
+            </i:Interaction.Behaviors>
+        </TextBox>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Numbers[7]}" >
+            <i:Interaction.Behaviors>
+                <b:TextBoxMoveFocus />
+            </i:Interaction.Behaviors>
+        </TextBox>
+        <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Numbers[8]}" >
+            <i:Interaction.Behaviors>
+                <b:TextBoxMoveFocus />
+            </i:Interaction.Behaviors>
+        </TextBox>
 
-        <Button Grid.Row="3" Grid.ColumnSpan="3" Content="+10" Margin="10,10" >
+        <Button Grid.Row="3" Grid.ColumnSpan="3" Content="+10" Margin="10,10" Focusable="False" >
             <Button.InputBindings>
                 <MouseBinding MouseAction="LeftClick" Command="{Binding AddCommand}" />
             </Button.InputBindings>
