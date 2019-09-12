@@ -38,46 +38,55 @@
         <TextBox Grid.Row="0" Grid.Column="0" Text="{Binding Numbers[0]}" >
             <i:Interaction.Behaviors>
                 <b:TextBoxMoveFocus />
+                <b:TextBoxIntegerOnly />
             </i:Interaction.Behaviors>
         </TextBox>
         <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Numbers[1]}" >
             <i:Interaction.Behaviors>
                 <b:TextBoxMoveFocus />
+                <b:TextBoxIntegerOnly />
             </i:Interaction.Behaviors>
         </TextBox>
         <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Numbers[2]}" >
             <i:Interaction.Behaviors>
                 <b:TextBoxMoveFocus />
+                <b:TextBoxIntegerOnly />
             </i:Interaction.Behaviors>
         </TextBox>
         <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding Numbers[3]}" >
             <i:Interaction.Behaviors>
                 <b:TextBoxMoveFocus />
+                <b:TextBoxIntegerOnly />
             </i:Interaction.Behaviors>
         </TextBox>
         <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Numbers[4]}" >
             <i:Interaction.Behaviors>
                 <b:TextBoxMoveFocus />
+                <b:TextBoxIntegerOnly />
             </i:Interaction.Behaviors>
         </TextBox>
         <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Numbers[5]}" >
             <i:Interaction.Behaviors>
                 <b:TextBoxMoveFocus />
+                <b:TextBoxIntegerOnly />
             </i:Interaction.Behaviors>
         </TextBox>
         <TextBox Grid.Row="2" Grid.Column="0" Text="{Binding Numbers[6]}" >
             <i:Interaction.Behaviors>
                 <b:TextBoxMoveFocus />
+                <b:TextBoxIntegerOnly />
             </i:Interaction.Behaviors>
         </TextBox>
         <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Numbers[7]}" >
             <i:Interaction.Behaviors>
                 <b:TextBoxMoveFocus />
+                <b:TextBoxIntegerOnly />
             </i:Interaction.Behaviors>
         </TextBox>
         <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Numbers[8]}" >
             <i:Interaction.Behaviors>
                 <b:TextBoxMoveFocus />
+                <b:TextBoxIntegerOnly />
             </i:Interaction.Behaviors>
         </TextBox>
 

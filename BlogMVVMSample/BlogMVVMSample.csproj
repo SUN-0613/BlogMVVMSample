@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Behaviors\MessageBoxBehavior.cs" />
     <Compile Include="Behaviors\TextBoxMoveFocus.cs" />
+    <Compile Include="Behaviors\TextBoxIntegerOnly.cs" />
     <Compile Include="Converter\BitmapConverter.cs" />
     <Compile Include="Converter\EnumToBoolConverter.cs" />
     <Compile Include="Converter\JobStatusConverter.cs" />
