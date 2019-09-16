@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Diagnostics;
 
 namespace BlogMVVMSample
 {
@@ -13,7 +14,7 @@ namespace BlogMVVMSample
 
             base.OnStartup(e);
 
-            new Forms.View.DataGridView().ShowDialog();
+            new Forms.View.DragAndDropView().ShowDialog();
 
         }
 

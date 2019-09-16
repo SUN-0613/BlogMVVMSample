@@ -38,6 +38,7 @@
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -68,9 +69,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behaviors\PathsDragAndDropBehavior.cs" />
     <Compile Include="Behaviors\MessageBoxBehavior.cs" />
     <Compile Include="Behaviors\TextBoxMoveFocus.cs" />
     <Compile Include="Behaviors\TextBoxIntegerOnly.cs" />
+    <Compile Include="Class\DispoableList.cs" />
     <Compile Include="Converter\BitmapConverter.cs" />
     <Compile Include="Converter\EnumToBoolConverter.cs" />
     <Compile Include="Converter\JobStatusConverter.cs" />
@@ -87,6 +90,7 @@
     <Compile Include="Forms\Model\ComboBox2Model.cs" />
     <Compile Include="Forms\Model\ComboBoxModel.cs" />
     <Compile Include="Forms\Model\DataGridModel.cs" />
+    <Compile Include="Forms\Model\DragAndDropModel.cs" />
     <Compile Include="Forms\Model\ListModel.cs" />
     <Compile Include="Forms\Model\MessageBox2Model.cs" />
     <Compile Include="Forms\Model\MessageBoxModel.cs" />
@@ -98,6 +102,7 @@
     <Compile Include="Forms\ViewModel\ComboBox2ViewModel.cs" />
     <Compile Include="Forms\ViewModel\ComboBoxViewModel.cs" />
     <Compile Include="Forms\ViewModel\DataGridViewModel.cs" />
+    <Compile Include="Forms\ViewModel\DragAndDropViewModel.cs" />
     <Compile Include="Forms\ViewModel\ListViewModel.cs" />
     <Compile Include="Forms\ViewModel\MessageBox2ViewModel.cs" />
     <Compile Include="Forms\ViewModel\MessageBoxViewModel.cs" />
@@ -118,6 +123,9 @@
     </Compile>
     <Compile Include="Forms\View\DataGridView.xaml.cs">
       <DependentUpon>DataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\View\DragAndDropView.xaml.cs">
+      <DependentUpon>DragAndDropView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\View\ListView.xaml.cs">
       <DependentUpon>ListView.xaml</DependentUpon>
@@ -194,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\DataGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\DragAndDropView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
