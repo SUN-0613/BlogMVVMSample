@@ -10,6 +10,9 @@ namespace BlogMVVMSample.MVVM
     public class DelegateCommand : ICommand
     {
 
+        // 警告：CS0067を非表示にする
+#pragma warning disable 0067
+
         /// <summary>
         /// CanExecute変更イベント
         /// </summary>

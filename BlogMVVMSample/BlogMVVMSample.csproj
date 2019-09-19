@@ -73,7 +73,8 @@
     <Compile Include="Behaviors\MessageBoxBehavior.cs" />
     <Compile Include="Behaviors\TextBoxMoveFocus.cs" />
     <Compile Include="Behaviors\TextBoxIntegerOnly.cs" />
-    <Compile Include="Class\DispoableList.cs" />
+    <Compile Include="Class\DisposableList.cs" />
+    <Compile Include="Class\DisposableStringBuilder.cs" />
     <Compile Include="Converter\BitmapConverter.cs" />
     <Compile Include="Converter\EnumToBoolConverter.cs" />
     <Compile Include="Converter\JobStatusConverter.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Forms\Model\CheckBoxModel.cs" />
     <Compile Include="Forms\Model\ComboBox2Model.cs" />
     <Compile Include="Forms\Model\ComboBoxModel.cs" />
+    <Compile Include="Forms\Model\CommonDialogModel.cs" />
     <Compile Include="Forms\Model\DataGridModel.cs" />
     <Compile Include="Forms\Model\DragAndDropModel.cs" />
     <Compile Include="Forms\Model\ListModel.cs" />
@@ -101,6 +103,7 @@
     <Compile Include="Forms\ViewModel\CheckBoxViewModel.cs" />
     <Compile Include="Forms\ViewModel\ComboBox2ViewModel.cs" />
     <Compile Include="Forms\ViewModel\ComboBoxViewModel.cs" />
+    <Compile Include="Forms\ViewModel\CommonDialogViewModel.cs" />
     <Compile Include="Forms\ViewModel\DataGridViewModel.cs" />
     <Compile Include="Forms\ViewModel\DragAndDropViewModel.cs" />
     <Compile Include="Forms\ViewModel\ListViewModel.cs" />
@@ -120,6 +123,9 @@
     </Compile>
     <Compile Include="Forms\View\ComboBoxView.xaml.cs">
       <DependentUpon>ComboBoxView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\View\CommonDialogView.xaml.cs">
+      <DependentUpon>CommonDialogView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\View\DataGridView.xaml.cs">
       <DependentUpon>DataGridView.xaml</DependentUpon>
@@ -198,6 +204,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\ComboBoxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\CommonDialogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

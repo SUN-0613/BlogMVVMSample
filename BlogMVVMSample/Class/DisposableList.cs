@@ -6,7 +6,7 @@ namespace BlogMVVMSample.Class
 
     /// <summary>List()にリソース開放処理</summary>
     /// <typeparam name="T">型指定</typeparam>
-    public class DispoableList<T> : List<T>, IDisposable
+    public class DisposableList<T> : List<T>, IDisposable
     {
 
         /// <summary>開放処理</summary>
