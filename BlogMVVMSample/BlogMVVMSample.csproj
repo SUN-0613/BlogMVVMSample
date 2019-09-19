@@ -90,12 +90,12 @@
     <Compile Include="Forms\Model\CheckBoxModel.cs" />
     <Compile Include="Forms\Model\ComboBox2Model.cs" />
     <Compile Include="Forms\Model\ComboBoxModel.cs" />
-    <Compile Include="Forms\Model\CommonDialogModel.cs" />
     <Compile Include="Forms\Model\DataGridModel.cs" />
     <Compile Include="Forms\Model\DragAndDropModel.cs" />
     <Compile Include="Forms\Model\ListModel.cs" />
     <Compile Include="Forms\Model\MessageBox2Model.cs" />
     <Compile Include="Forms\Model\MessageBoxModel.cs" />
+    <Compile Include="Forms\Model\ParameterCommandModel.cs" />
     <Compile Include="Forms\Model\TextBox2Model.cs" />
     <Compile Include="Forms\Model\TextBox3Model.cs" />
     <Compile Include="Forms\Model\TextBoxModel.cs" />
@@ -103,12 +103,12 @@
     <Compile Include="Forms\ViewModel\CheckBoxViewModel.cs" />
     <Compile Include="Forms\ViewModel\ComboBox2ViewModel.cs" />
     <Compile Include="Forms\ViewModel\ComboBoxViewModel.cs" />
-    <Compile Include="Forms\ViewModel\CommonDialogViewModel.cs" />
     <Compile Include="Forms\ViewModel\DataGridViewModel.cs" />
     <Compile Include="Forms\ViewModel\DragAndDropViewModel.cs" />
     <Compile Include="Forms\ViewModel\ListViewModel.cs" />
     <Compile Include="Forms\ViewModel\MessageBox2ViewModel.cs" />
     <Compile Include="Forms\ViewModel\MessageBoxViewModel.cs" />
+    <Compile Include="Forms\ViewModel\ParameterCommandViewModel.cs" />
     <Compile Include="Forms\ViewModel\TextBox2ViewModel.cs" />
     <Compile Include="Forms\ViewModel\TextBox3ViewModel.cs" />
     <Compile Include="Forms\ViewModel\TextBoxViewModel.cs" />
@@ -124,9 +124,6 @@
     <Compile Include="Forms\View\ComboBoxView.xaml.cs">
       <DependentUpon>ComboBoxView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Forms\View\CommonDialogView.xaml.cs">
-      <DependentUpon>CommonDialogView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Forms\View\DataGridView.xaml.cs">
       <DependentUpon>DataGridView.xaml</DependentUpon>
     </Compile>
@@ -141,6 +138,9 @@
     </Compile>
     <Compile Include="Forms\View\MessageBoxView.xaml.cs">
       <DependentUpon>MessageBoxView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\View\ParameterCommandView.xaml.cs">
+      <DependentUpon>ParameterCommandView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\View\RadioButton.xaml.cs">
       <DependentUpon>RadioButton.xaml</DependentUpon>
@@ -207,10 +207,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Forms\View\CommonDialogView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Forms\View\DataGridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -228,6 +224,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\MessageBoxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\ParameterCommandView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
