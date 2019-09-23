@@ -35,6 +35,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.94.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.94.2\lib\net46\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.3.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.3\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="FastMember, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.1.3.0\lib\net45\FastMember.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
     </Reference>
@@ -48,6 +60,14 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -102,6 +122,7 @@
     <Compile Include="Forms\Model\CsvModel.cs" />
     <Compile Include="Forms\Model\DataGridModel.cs" />
     <Compile Include="Forms\Model\DragAndDropModel.cs" />
+    <Compile Include="Forms\Model\ExcelModel.cs" />
     <Compile Include="Forms\Model\ListModel.cs" />
     <Compile Include="Forms\Model\MessageBox2Model.cs" />
     <Compile Include="Forms\Model\MessageBoxModel.cs" />
@@ -117,6 +138,7 @@
     <Compile Include="Forms\ViewModel\CsvViewModel.cs" />
     <Compile Include="Forms\ViewModel\DataGridViewModel.cs" />
     <Compile Include="Forms\ViewModel\DragAndDropViewModel.cs" />
+    <Compile Include="Forms\ViewModel\ExcelViewModel.cs" />
     <Compile Include="Forms\ViewModel\ListViewModel.cs" />
     <Compile Include="Forms\ViewModel\MessageBox2ViewModel.cs" />
     <Compile Include="Forms\ViewModel\MessageBoxViewModel.cs" />
@@ -147,6 +169,9 @@
     </Compile>
     <Compile Include="Forms\View\DragAndDropView.xaml.cs">
       <DependentUpon>DragAndDropView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\View\ExcelView.xaml.cs">
+      <DependentUpon>ExcelView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\View\ListView.xaml.cs">
       <DependentUpon>ListView.xaml</DependentUpon>
@@ -238,6 +263,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\DragAndDropView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\ExcelView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
