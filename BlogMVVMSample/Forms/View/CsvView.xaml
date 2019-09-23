@@ -16,11 +16,15 @@
         <interactions:PropertyChangedTrigger Binding="{Binding OpenDialog}" >
             <b:CommonDialogBehavior Result="{Binding DialogResult, Mode=OneWayToSource}" />
         </interactions:PropertyChangedTrigger>
+        <interactions:PropertyChangedTrigger Binding="{Binding SaveDialog}" >
+            <b:CommonDialogBehavior Result="{Binding DialogResult, Mode=OneWayToSource}" />
+        </interactions:PropertyChangedTrigger>
     </i:Interaction.Triggers>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -44,5 +48,13 @@
                 <DataGridTextColumn Header="地名" Binding="{Binding Place}" Width="Auto" />
             </DataGrid.Columns>
         </DataGrid>
+        
+        <!-- CSVファイルの作成 -->
+        <Button Grid.Row="2" Grid.ColumnSpan="2" Content="ファイルを保存" Margin="5,3" >
+            <Button.InputBindings>
+                <MouseBinding MouseAction="LeftClick" Command="{Binding SaveDialogCommand}" />
+            </Button.InputBindings>
+        </Button>
+
     </Grid>
 </Window>

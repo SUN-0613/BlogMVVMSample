@@ -66,6 +66,16 @@ namespace BlogMVVMSample.Forms.ViewModel
         /// <summary>住所一覧</summary>
         public ObservableCollection<Address> Addresses { get; set; }
 
+        #region CSVファイルの作成
+
+        /// <summary>ファイルを保存するダイアログ</summary>
+        public CommonSaveFileDialog SaveDialog { get; set; }
+
+        /// <summary>保存ダイアログ表示コマンド</summary>
+        public DelegateCommand SaveDialogCommand { get; private set; }
+
+        #endregion
+
         #endregion
 
         /// <summary>ファイルパス</summary>
@@ -101,6 +111,37 @@ namespace BlogMVVMSample.Forms.ViewModel
 
                 },
                 () => true);
+
+            #region CSVファイルの作成
+
+            SaveDialogCommand = new DelegateCommand(
+                () => 
+                {
+
+                    using (SaveDialog = new CommonSaveFileDialog()
+                    {
+                        Title = "保存するファイル名を入力してください",
+                        DefaultDirectory = Environment.CurrentDirectory,
+                        DefaultFileName = "SaveFile.csv"
+                    })
+                    {
+
+                        // 拡張子フィルタ
+                        SaveDialog.Filters.Add(new CommonFileDialogFilter("CSVファイル", "*.csv"));
+
+                        CallPropertyChanged(nameof(SaveDialog));
+
+                        if (DialogResult.Equals(CommonFileDialogResult.Ok))
+                        {
+                            _Model.SaveCsvFile(SaveDialog.FileName, Addresses);
+                        }
+
+                    }
+
+                }, 
+                () => true);
+
+            #endregion
 
         }
 

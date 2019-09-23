@@ -24,6 +24,12 @@ namespace BlogMVVMSample.Class
             _StringBuilder = new StringBuilder(capacity);
         }
 
+        /// <summary>全ての文字列を削除</summary>
+        public void Clear()
+        {
+            _StringBuilder.Clear();
+        }
+
         /// <summary>開放処理</summary>
         public void Dispose()
         {

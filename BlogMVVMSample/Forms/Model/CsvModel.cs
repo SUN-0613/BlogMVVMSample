@@ -1,4 +1,5 @@
-﻿using BlogMVVMSample.Data;
+﻿using BlogMVVMSample.Class;
+using BlogMVVMSample.Data;
 using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections;
@@ -95,6 +96,52 @@ namespace BlogMVVMSample.Forms.Model
             return collection;
 
         }
+
+        #region CSVファイルの作成
+
+        /// <summary>住所一覧をCSVファイルに保存</summary>
+        /// <param name="fullPath">保存するCSVファイルパス</param>
+        /// <param name="addresses">住所一覧</param>
+        public void SaveCsvFile(string fullPath, ObservableCollection<Address> addresses)
+        {
+
+            // 指定パスのファイルを上書保存
+            using (var writer = new StreamWriter(fullPath, false, Encoding.Default))
+            {
+
+                using (var row = new DisposableStringBuilder(128))
+                {
+
+                    foreach (var address in addresses)
+                    {
+
+                        // 出力する行データの作成
+                        row.Clear();
+                        row.Append(AddDoubleQuotation(address.PostalCode)).Append(",");
+                        row.Append(AddDoubleQuotation(address.Prefectures)).Append(",");
+                        row.Append(AddDoubleQuotation(address.City)).Append(",");
+                        row.Append(AddDoubleQuotation(address.Place));
+
+                        // 行データをCSVファイルに出力
+                        writer.WriteLine(row.ToString());
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        /// <summary>文字列をダブルクオーテーションで囲む</summary>
+        /// <param name="value">文字列</param>
+        /// <returns>ダブルクオーテーションで囲んだ文字列</returns>
+        private string AddDoubleQuotation(string value)
+        {
+            return @"""" + value + @"""";
+        }
+
+        #endregion
 
     }
 
