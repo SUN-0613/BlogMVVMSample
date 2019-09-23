@@ -87,6 +87,7 @@
     <Compile Include="Converter\JobStatusConverter.cs" />
     <Compile Include="Custom\ListView.cs" />
     <Compile Include="Custom\TreeView.cs" />
+    <Compile Include="Data\Address.cs" />
     <Compile Include="Data\FileInfo.cs" />
     <Compile Include="Data\JobStatus.cs" />
     <Compile Include="Data\MessageBox.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Forms\Model\ComboBox2Model.cs" />
     <Compile Include="Forms\Model\ComboBoxModel.cs" />
     <Compile Include="Forms\Model\CommonDialogModel.cs" />
+    <Compile Include="Forms\Model\CsvModel.cs" />
     <Compile Include="Forms\Model\DataGridModel.cs" />
     <Compile Include="Forms\Model\DragAndDropModel.cs" />
     <Compile Include="Forms\Model\ListModel.cs" />
@@ -112,6 +114,7 @@
     <Compile Include="Forms\ViewModel\ComboBox2ViewModel.cs" />
     <Compile Include="Forms\ViewModel\ComboBoxViewModel.cs" />
     <Compile Include="Forms\ViewModel\CommonDialogViewModel.cs" />
+    <Compile Include="Forms\ViewModel\CsvViewModel.cs" />
     <Compile Include="Forms\ViewModel\DataGridViewModel.cs" />
     <Compile Include="Forms\ViewModel\DragAndDropViewModel.cs" />
     <Compile Include="Forms\ViewModel\ListViewModel.cs" />
@@ -135,6 +138,9 @@
     </Compile>
     <Compile Include="Forms\View\CommonDialogView.xaml.cs">
       <DependentUpon>CommonDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\View\CsvView.xaml.cs">
+      <DependentUpon>CsvView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\View\DataGridView.xaml.cs">
       <DependentUpon>DataGridView.xaml</DependentUpon>
@@ -220,6 +226,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\CommonDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\CsvView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
