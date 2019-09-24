@@ -127,6 +127,7 @@
     <Compile Include="Forms\Model\MessageBox2Model.cs" />
     <Compile Include="Forms\Model\MessageBoxModel.cs" />
     <Compile Include="Forms\Model\ParameterCommandModel.cs" />
+    <Compile Include="Forms\Model\ProgressBarModel.cs" />
     <Compile Include="Forms\Model\TextBox2Model.cs" />
     <Compile Include="Forms\Model\TextBox3Model.cs" />
     <Compile Include="Forms\Model\TextBoxModel.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="Forms\ViewModel\MessageBox2ViewModel.cs" />
     <Compile Include="Forms\ViewModel\MessageBoxViewModel.cs" />
     <Compile Include="Forms\ViewModel\ParameterCommandViewModel.cs" />
+    <Compile Include="Forms\ViewModel\ProgressBarViewModel.cs" />
     <Compile Include="Forms\ViewModel\TextBox2ViewModel.cs" />
     <Compile Include="Forms\ViewModel\TextBox3ViewModel.cs" />
     <Compile Include="Forms\ViewModel\TextBoxViewModel.cs" />
@@ -184,6 +186,9 @@
     </Compile>
     <Compile Include="Forms\View\ParameterCommandView.xaml.cs">
       <DependentUpon>ParameterCommandView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\View\ProgressBarView.xaml.cs">
+      <DependentUpon>ProgressBarView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\View\RadioButton.xaml.cs">
       <DependentUpon>RadioButton.xaml</DependentUpon>
@@ -283,6 +288,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\ParameterCommandView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\ProgressBarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

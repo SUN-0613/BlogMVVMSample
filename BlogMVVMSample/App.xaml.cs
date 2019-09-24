@@ -13,7 +13,7 @@ namespace BlogMVVMSample
 
             base.OnStartup(e);
 
-            new Forms.View.ExcelView().ShowDialog();
+            new Forms.View.ProgressBarView().ShowDialog();
 
         }
 
