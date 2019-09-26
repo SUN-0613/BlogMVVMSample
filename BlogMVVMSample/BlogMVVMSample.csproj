@@ -102,6 +102,7 @@
     <Compile Include="Behaviors\TextBoxIntegerOnly.cs" />
     <Compile Include="Class\DisposableList.cs" />
     <Compile Include="Class\DisposableStringBuilder.cs" />
+    <Compile Include="Class\SqlServer.cs" />
     <Compile Include="Converter\BitmapConverter.cs" />
     <Compile Include="Converter\EnumToBoolConverter.cs" />
     <Compile Include="Converter\JobStatusConverter.cs" />
