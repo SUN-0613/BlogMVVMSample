@@ -28,7 +28,7 @@ namespace BlogMVVMSample.Class
 
         #endregion
 
-        #region 新規作成
+        #region 新規作成、解放処理
 
         /// <summary>
         /// SQL Server 操作管理
@@ -87,9 +87,20 @@ namespace BlogMVVMSample.Class
 
         }
 
+        /// <summary>エラー情報の初期化</summary>
+        private void InitializeException()
+        {
+
+            if (!string.IsNullOrEmpty(ExceptionMessage))
+            {
+                ExceptionMessage = string.Empty;
+            }
+
+        }
+
         #endregion
 
-        #region 接続
+        #region 接続、切断
 
         /// <summary>SQL Server接続</summary>
         /// <param name="connectionString">接続するためのパラメータ</param>
@@ -105,6 +116,37 @@ namespace BlogMVVMSample.Class
                 // SQL Server 接続
                 _SqlConnection.Open();
                 _IsConnect = true;
+
+            }
+            catch (Exception ex)
+            {
+                ExceptionMessage = ex.Message;
+            }
+
+        }
+
+        /// <summary>切断</summary>
+        private void Close()
+        {
+
+            try
+            {
+
+                InitializeException();
+
+                // 切断
+                if (_IsConnect)
+                {
+                    _SqlConnection.Close();
+                    _IsConnect = false;
+                }
+
+                // メモリ解放
+                if (_SqlConnection != null)
+                {
+                    _SqlConnection.Dispose();
+                    _SqlConnection = null;
+                }
 
             }
             catch (Exception ex)
