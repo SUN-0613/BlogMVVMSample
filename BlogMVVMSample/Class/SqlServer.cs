@@ -5,7 +5,7 @@ namespace BlogMVVMSample.Class
 {
 
     /// <summary>SQL Server 接続管理</summary>
-    public class SqlServer
+    public class SqlServer : IDisposable
     {
 
         #region ErrorProperty
@@ -25,6 +25,9 @@ namespace BlogMVVMSample.Class
 
         /// <summary>接続FLG</summary>
         private bool _IsConnect = false;
+
+        /// <summary>トランザクション</summary>
+        private SqlTransaction _SqlTransaction;
 
         #endregion
 
@@ -87,8 +90,21 @@ namespace BlogMVVMSample.Class
 
         }
 
+        /// <summary>解放処理</summary>
+        public void Dispose()
+        {
+
+            // トランザクションの途中ならロールバック
+            Rollback();
+
+            // 切断
+            Close();
+
+        }
+
         /// <summary>エラー情報の初期化</summary>
-        private void InitializeException()
+        /// <param name="checkConnect">SQL Serverに接続済みかチェックする</param>
+        private void InitializeException(bool checkConnect = true)
         {
 
             if (!string.IsNullOrEmpty(ExceptionMessage))
@@ -96,6 +112,20 @@ namespace BlogMVVMSample.Class
                 ExceptionMessage = string.Empty;
             }
 
+            if (checkConnect)
+            {
+                CheckConnect();
+            }
+
+        }
+
+        /// <summary>SQL Serverに接続済かチェックする</summary>
+        private void CheckConnect()
+        {
+            if (!_IsConnect)
+            {
+                throw new BadImageFormatException("Can not connect to SQL Server");
+            }
         }
 
         #endregion
@@ -146,6 +176,82 @@ namespace BlogMVVMSample.Class
                 {
                     _SqlConnection.Dispose();
                     _SqlConnection = null;
+                }
+
+                // トランザクション初期化
+                if (_SqlTransaction != null)
+                {
+                    _SqlTransaction.Dispose();
+                    _SqlTransaction = null;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ExceptionMessage = ex.Message;
+            }
+
+        }
+
+        #endregion
+
+        #region トランザクション
+
+        /// <summary>トランザクション開始</summary>
+        public void BeginTransaction()
+        {
+
+            try
+            {
+
+                InitializeException();
+
+                _SqlTransaction = _SqlConnection.BeginTransaction();
+
+            }
+            catch (Exception ex)
+            {
+                ExceptionMessage = ex.Message;
+            }
+
+        }
+
+        /// <summary>コミット</summary>
+        public void Commit()
+        {
+
+            try
+            {
+
+                InitializeException();
+
+                if (_SqlTransaction.Connection != null)
+                {
+                    _SqlTransaction.Commit();
+                    _SqlTransaction.Dispose();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ExceptionMessage = ex.Message;
+            }
+
+        }
+
+        /// <summary>ロールバック</summary>
+        public void Rollback()
+        {
+
+            try
+            {
+
+                InitializeException();
+
+                if (_SqlTransaction.Connection != null)
+                {
+                    _SqlTransaction.Rollback();
+                    _SqlTransaction.Dispose();
                 }
 
             }
