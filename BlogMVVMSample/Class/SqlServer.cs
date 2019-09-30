@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace BlogMVVMSample.Class
@@ -260,6 +262,163 @@ namespace BlogMVVMSample.Class
                 ExceptionMessage = ex.Message;
             }
 
+        }
+
+        #endregion
+
+        #region クエリ実行
+
+        /// <summary>クエリ実行</summary>
+        /// <param name="query">SQL文</param>
+        /// <param name="parameters">SQLパラメータ</param>
+        /// <param name="queryTimeout">クエリ実行時間(秒)</param>
+        /// <returns>クエリ実行結果</returns>
+        public SqlDataReader ExecuteQuery(string query, Dictionary<string, object> parameters, int queryTimeout = 30)
+        {
+
+            try
+            {
+
+                // エラーメッセージの初期化
+                InitializeException();
+
+                using (var sqlCommand = new SqlCommand(query, _SqlConnection, _SqlTransaction))
+                {
+
+                    // タイムアウトの設定
+                    sqlCommand.CommandTimeout = queryTimeout;
+
+                    // パラメータの設定
+                    foreach (var parameter in parameters)
+                    {
+                        sqlCommand.Parameters.Add(new SqlParameter(parameter.Key, parameter.Value));
+                    }
+
+                    // 実行
+                    return sqlCommand.ExecuteReader();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                ExceptionMessage = ex.Message;
+                return null;
+
+            }
+
+        }
+
+        /// <summary>クエリ実行</summary>
+        /// <param name="query">SQL文</param>
+        /// <param name="queryTimeout">クエリ実行時間(秒)</param>
+        /// <returns>クエリ実行結果</returns>
+        public SqlDataReader ExecuteQuery(string query, int queryTimeout = 30)
+        {
+            return ExecuteQuery(query, new Dictionary<string, object>(), queryTimeout);
+        }
+
+        /// <summary>クエリ実行</summary>
+        /// <param name="query">SQL文</param>
+        /// <param name="parameters">SQLパラメータ</param>
+        /// <param name="queryTimeout">クエリ実行時間(秒)</param>
+        /// <returns>更新された行数</returns>
+        public int ExecuteNonQuery(string query, Dictionary<string, object> parameters, int queryTimeout = 30)
+        {
+
+            try
+            {
+
+                InitializeException();
+
+                using (var sqlCommand = new SqlCommand(query, _SqlConnection, _SqlTransaction))
+                {
+
+                    // タイムアウトの設定
+                    sqlCommand.CommandTimeout = queryTimeout;
+
+                    // パラメータの設定
+                    foreach (var parameter in parameters)
+                    {
+                        sqlCommand.Parameters.Add(new SqlParameter(parameter.Key, parameter.Value));
+                    }
+
+                    // 実行
+                    return sqlCommand.ExecuteNonQuery();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                ExceptionMessage = ex.Message;
+                return -1;
+
+            }
+
+        }
+
+        /// <summary>クエリ実行後、DataTableにて返す</summary>
+        /// <param name="query">SQL文</param>
+        /// <param name="parameters">SQLパラメータ</param>
+        /// <param name="queryTimeout">クエリ実行時間(秒)</param>
+        /// <returns>クエリ実行結果</returns>
+        public DataTable ExecuteQueryToDataTable(string query, Dictionary<string, object> parameters, int queryTimeout = 30)
+        {
+
+            try
+            {
+
+                InitializeException();
+
+                using (var sqlCommand = new SqlCommand(query, _SqlConnection, _SqlTransaction))
+                {
+
+                    // タイムアウトの設定
+                    sqlCommand.CommandTimeout = queryTimeout;
+
+                    // パラメータの設定
+                    foreach (var parameter in parameters)
+                    {
+                        sqlCommand.Parameters.Add(new SqlParameter(parameter.Key, parameter.Value));
+                    }
+
+                    // 実行
+                    sqlCommand.ExecuteNonQuery();
+
+                    // 戻り値作成
+                    var readData = new DataTable();
+                    using (var dataAdapter = new SqlDataAdapter(sqlCommand))
+                    {
+
+                        dataAdapter.Fill(readData);
+
+                    }
+
+                    return readData;
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                ExceptionMessage = ex.Message;
+                return null;
+
+            }
+
+        }
+
+        /// <summary>クエリ実行後、DataTableにて返す</summary>
+        /// <param name="query">SQL文</param>
+        /// <param name="queryTimeout">クエリ実行時間(秒)</param>
+        /// <returns>クエリ実行結果</returns>
+        public DataTable ExecuteQueryToDataTable(string query, int queryTimeout = 30)
+        {
+            return ExecuteQueryToDataTable(query, new Dictionary<string, object>(), queryTimeout);
         }
 
         #endregion
