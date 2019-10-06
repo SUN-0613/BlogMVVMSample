@@ -100,6 +100,7 @@
     <Compile Include="Behaviors\MessageBoxBehavior.cs" />
     <Compile Include="Behaviors\TextBoxMoveFocus.cs" />
     <Compile Include="Behaviors\TextBoxIntegerOnly.cs" />
+    <Compile Include="Behaviors\WindowClosedBehavior.cs" />
     <Compile Include="Class\DisposableList.cs" />
     <Compile Include="Class\DisposableStringBuilder.cs" />
     <Compile Include="Class\SqlServer.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="Forms\Model\CommonDialogModel.cs" />
     <Compile Include="Forms\Model\CsvModel.cs" />
     <Compile Include="Forms\Model\DataGridModel.cs" />
+    <Compile Include="Forms\Model\DisposeModel.cs" />
     <Compile Include="Forms\Model\DragAndDropModel.cs" />
     <Compile Include="Forms\Model\ExcelModel.cs" />
     <Compile Include="Forms\Model\ListModel.cs" />
@@ -141,6 +143,7 @@
     <Compile Include="Forms\ViewModel\CommonDialogViewModel.cs" />
     <Compile Include="Forms\ViewModel\CsvViewModel.cs" />
     <Compile Include="Forms\ViewModel\DataGridViewModel.cs" />
+    <Compile Include="Forms\ViewModel\DisposeViewModel.cs" />
     <Compile Include="Forms\ViewModel\DragAndDropViewModel.cs" />
     <Compile Include="Forms\ViewModel\ExcelViewModel.cs" />
     <Compile Include="Forms\ViewModel\ListViewModel.cs" />
@@ -172,6 +175,9 @@
     </Compile>
     <Compile Include="Forms\View\DataGridView.xaml.cs">
       <DependentUpon>DataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\View\DisposeView.xaml.cs">
+      <DependentUpon>DisposeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\View\DragAndDropView.xaml.cs">
       <DependentUpon>DragAndDropView.xaml</DependentUpon>
@@ -271,6 +277,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\DataGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\DisposeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

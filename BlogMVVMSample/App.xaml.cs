@@ -13,7 +13,7 @@ namespace BlogMVVMSample
 
             base.OnStartup(e);
 
-            new Forms.View.SqlServerView().ShowDialog();
+            new Forms.View.DisposeView().ShowDialog();
 
         }
 
