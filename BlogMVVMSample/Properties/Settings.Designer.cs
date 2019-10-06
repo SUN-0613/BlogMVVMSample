@@ -50,12 +50,12 @@ namespace BlogMVVMSample.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("wpf")]
-        public string UserID {
+        public string UserName {
             get {
-                return ((string)(this["UserID"]));
+                return ((string)(this["UserName"]));
             }
             set {
-                this["UserID"] = value;
+                this["UserName"] = value;
             }
         }
         

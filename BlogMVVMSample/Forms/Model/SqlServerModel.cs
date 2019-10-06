@@ -4,6 +4,7 @@ using BlogMVVMSample.Properties;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Diagnostics;
 
 namespace BlogMVVMSample.Forms.Model
@@ -106,6 +107,59 @@ namespace BlogMVVMSample.Forms.Model
                 }
 
                 return values;
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+
+            return null;
+
+        }
+
+        /// <summary>指定テーブルのレコードを取得</summary>
+        /// <returns>テーブルレコード</returns>
+        public DataTable GetTableRecord(DataBaseInfo tableInfo)
+        {
+
+            // データベース選択時はnullを戻す
+            if (string.IsNullOrEmpty(tableInfo.ParentName))
+            {
+                return null;
+            }
+
+            try
+            {
+
+                // SQL Server認証でDB接続
+                using (var sqlServer = new SqlServer(Settings.Default.ServerName, Settings.Default.DbName,
+                                                     Settings.Default.UserName, Settings.Default.Password))
+                {
+
+                    // 接続エラー確認
+                    if (sqlServer.IsError)
+                    {
+                        throw new Exception(sqlServer.ExceptionMessage);
+                    }
+
+                    // クエリを保存するStringBuilderの宣言
+                    using (var query = new DisposableStringBuilder())
+                    {
+
+                        // データベース名＋テーブル名の取得
+                        var tableName = tableInfo.ParentName + ".dbo." + tableInfo.Name;
+
+                        // レコード取得クエリ作成
+                        query.Append("SELECT * FROM ");
+                        query.Append(tableName);
+
+                        // クエリを実行してDataTableを取得
+                        return sqlServer.ExecuteQueryToDataTable(query.ToString());
+
+                    }
+
+                }
 
             }
             catch (Exception ex)

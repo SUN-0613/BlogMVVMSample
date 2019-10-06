@@ -8,7 +8,7 @@
     <Setting Name="DbName" Type="System.String" Scope="User">
       <Value Profile="(Default)">master</Value>
     </Setting>
-    <Setting Name="UserID" Type="System.String" Scope="User">
+    <Setting Name="UserName" Type="System.String" Scope="User">
       <Value Profile="(Default)">wpf</Value>
     </Setting>
     <Setting Name="Password" Type="System.String" Scope="User">

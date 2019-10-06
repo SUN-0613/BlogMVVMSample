@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:BlogMVVMSample.Forms.ViewModel"
         xmlns:data="clr-namespace:BlogMVVMSample.Data"
+        xmlns:custom="clr-namespace:BlogMVVMSample.Custom"
         mc:Ignorable="d"
         Title="SqlServerView" Height="450" Width="800">
     <Window.DataContext>
@@ -13,13 +14,20 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2" />
+            <ColumnDefinition Width="4*" />
         </Grid.ColumnDefinitions>
-        <TreeView ItemsSource="{Binding DataBaseInfoList}" >
+        <custom:CustomTreeView ItemsSource="{Binding DataBaseInfoList}" CustomSelectedItem="{Binding SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate DataType="data:DataBaseInfo" ItemsSource="{Binding Tables}" >
                     <TextBlock Text="{Binding Name}" />
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
-        </TreeView>
+        </custom:CustomTreeView>
+        
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ResizeDirection="Columns" />
+
+        <DataGrid Grid.Column="2" ItemsSource="{Binding TableRecord}" />
+        
     </Grid>
 </Window>
