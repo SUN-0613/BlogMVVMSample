@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace BlogMVVMSample
 {
@@ -13,7 +14,15 @@ namespace BlogMVVMSample
 
             base.OnStartup(e);
 
-            new Forms.View.DisposeView().ShowDialog();
+            var form = new Forms.View.DisposeView();
+
+            form.ShowDialog();
+
+            var form2 = new Forms.View.DragAndDropView();
+
+            form2.ShowDialog();
+
+            Shutdown();
 
         }
 

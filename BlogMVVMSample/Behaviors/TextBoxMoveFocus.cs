@@ -9,7 +9,7 @@ namespace BlogMVVMSample.Behaviors
     /// TextBox用ビヘイビア
     /// Enter、カーソルキーで次フォーカス移動
     /// </summary>
-    public class TextBoxMoveFocus : Behavior<TextBox>
+    public class TextBoxMoveFocus : BehaviorBase<TextBox>
     {
 
         /// <summary>

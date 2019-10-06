@@ -10,7 +10,7 @@ namespace BlogMVVMSample.Behaviors
     /// TextBox用ビヘイビア
     /// 整数値のみを入力許可
     /// </summary>
-    public class TextBoxIntegerOnly : Behavior<TextBox>
+    public class TextBoxIntegerOnly : BehaviorBase<TextBox>
     {
 
         /// <summary>

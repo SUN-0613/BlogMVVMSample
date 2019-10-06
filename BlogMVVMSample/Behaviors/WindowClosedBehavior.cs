@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Interactivity;
 
 namespace BlogMVVMSample.Behaviors
 {
 
     /// <summary>Windowの閉じる処理でViewModelのDisposeを実行するビヘイビア</summary>
-    public class WindowClosedBehavior : Behavior<Window>
+    public class WindowClosedBehavior : BehaviorBase<Window>
     {
 
         /// <summary>イベント登録</summary>

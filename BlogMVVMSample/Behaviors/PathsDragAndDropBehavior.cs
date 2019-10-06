@@ -6,7 +6,7 @@ namespace BlogMVVMSample.Behaviors
 {
 
     /// <summary>パスのドラッグ＆ドロップ処理を行うビヘイビア</summary>
-    public class PathsDragAndDropBehavior : Behavior<FrameworkElement>
+    public class PathsDragAndDropBehavior : BehaviorBase<FrameworkElement>
     {
 
         #region DependencyProperty

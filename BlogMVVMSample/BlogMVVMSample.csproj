@@ -95,6 +95,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behaviors\BehaviorBase.cs" />
     <Compile Include="Behaviors\CommonDialogBehavior.cs" />
     <Compile Include="Behaviors\PathsDragAndDropBehavior.cs" />
     <Compile Include="Behaviors\MessageBoxBehavior.cs" />
