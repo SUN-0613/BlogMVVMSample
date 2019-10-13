@@ -9,18 +9,16 @@ namespace BlogMVVMSample
     public partial class App : Application
     {
 
+        /// <summary>プログラム起動</summary>
+        /// <param name="e">プログラム起動イベントデータ</param>
         protected override void OnStartup(StartupEventArgs e)
         {
 
             base.OnStartup(e);
 
-            var form = new Forms.View.DisposeView();
+            var form = new Forms.View.GridAnimationView();
 
             form.ShowDialog();
-
-            var form2 = new Forms.View.DragAndDropView();
-
-            form2.ShowDialog();
 
             Shutdown();
 

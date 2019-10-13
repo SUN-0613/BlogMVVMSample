@@ -1,0 +1,25 @@
+﻿<Window x:Class="BlogMVVMSample.Forms.View.GridAnimationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:b="clr-namespace:BlogMVVMSample.Behaviors"
+        mc:Ignorable="d"
+        Title="GridAnimationView" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+
+        <!-- アニメーションで隠れるGrid -->
+        <Grid Grid.Row="1" Background="Gray" >
+            <i:Interaction.Behaviors>
+                <b:GridAnimationBehavior />
+            </i:Interaction.Behaviors>
+            <TextBlock Text="Hello World!" Foreground="White" VerticalAlignment="Center" TextAlignment="Center" />
+        </Grid>
+        
+    </Grid>
+</Window>

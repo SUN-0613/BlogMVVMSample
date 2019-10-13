@@ -7,7 +7,7 @@ namespace BlogMVVMSample.MVVM
     /// <summary>
     /// ViewModel.ベースクラス
     /// </summary>
-    public class ViewModelBase : INotifyPropertyChanged
+    public abstract class ViewModelBase : INotifyPropertyChanged
     {
 
         /// <summary>
