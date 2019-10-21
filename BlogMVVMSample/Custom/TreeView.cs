@@ -9,7 +9,7 @@ namespace BlogMVVMSample.Custom
     /// TreeViewカスタマイズ
     /// Binding可能なSelectedItemを追加
     /// </summary>
-    public class CustomTreeView : TreeView, IDisposable
+    public class CustomTreeView : TreeView
     {
 
         #region DependencyProperty
@@ -45,31 +45,16 @@ namespace BlogMVVMSample.Custom
         /// <summary>
         /// SelectedItem変更イベント
         /// </summary>
-        protected void OnSelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        protected override void OnSelectedItemChanged(RoutedPropertyChangedEventArgs<object> e)
         {
-            if (SelectedItem != null)
-            {
-                SetValue(CustomSelectedItemProperty, SelectedItem);
-            }
+
+            base.OnSelectedItemChanged(e);
+
+            SetValue(CustomSelectedItemProperty, SelectedItem);
+
         }
 
         #endregion
-
-        /// <summary>
-        /// TreeViewカスタマイズ
-        /// </summary>
-        public CustomTreeView()
-        {
-            SelectedItemChanged += OnSelectedItemChanged;
-        }
-
-        /// <summary>
-        /// 終了処理
-        /// </summary>
-        public void Dispose()
-        {
-            SelectedItemChanged -= OnSelectedItemChanged;
-        }
 
     }
 
