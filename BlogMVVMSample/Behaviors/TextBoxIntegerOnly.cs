@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Interactivity;
 
 namespace BlogMVVMSample.Behaviors
 {
@@ -67,10 +66,7 @@ namespace BlogMVVMSample.Behaviors
         {
 
             // 整数値に変換できない場合は処理をキャンセル
-            if (!int.TryParse(e.Text, out int resultValue))
-            {
-                e.Handled = true;
-            }
+            e.Handled = !CheckTextInput(sender, e.Text);
 
         }
 
@@ -83,9 +79,44 @@ namespace BlogMVVMSample.Behaviors
         {
 
             // 整数値に変換できる場合は貼り付け処理を実行
-            if (int.TryParse(Clipboard.GetText(), out int resultValue))
+            if (CheckTextInput(sender, Clipboard.GetText()))
             {
                 AssociatedObject.Paste();
+            }
+
+        }
+
+        /// <summary>入力した内容で数値となるかチェック</summary>
+        /// <param name="sender">TextBox</param>
+        /// <param name="addText">追加文字</param>
+        /// <returns>
+        /// true : 数値OK
+        /// false : 数値NG
+        /// </returns>
+        private bool CheckTextInput(object sender, string addText)
+        {
+
+            if (sender is TextBox textBox)
+            {
+
+                // カーソル位置より前の文字列
+                var part1 = textBox.SelectionStart.Equals(0) ? "" : textBox.Text.Substring(0, textBox.SelectionStart);
+
+                // カーソル位置＋選択文字より後の文字列
+                var part2 = textBox.Text.Substring(textBox.SelectionStart + textBox.SelectionLength);
+
+                // part1とpart2の間に入力された文字を追加
+                var text = part1 + addText + part2;
+
+                // 作成した文字列が整数に変換できるか
+                return int.TryParse(text, out int value);
+
+            }
+            else
+            {
+
+                return false;
+
             }
 
         }

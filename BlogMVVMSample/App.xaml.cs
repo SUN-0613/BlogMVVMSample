@@ -16,7 +16,7 @@ namespace BlogMVVMSample
 
             base.OnStartup(e);
 
-            var form = new Forms.View.GridAnimationView();
+            var form = new Forms.View.TextBox3View();
 
             form.ShowDialog();
 
