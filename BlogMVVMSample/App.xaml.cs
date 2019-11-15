@@ -16,7 +16,7 @@ namespace BlogMVVMSample
 
             base.OnStartup(e);
 
-            var form = new Forms.View.TextBox3View();
+            var form = new Forms.View.CallbackView();
 
             form.ShowDialog();
 
