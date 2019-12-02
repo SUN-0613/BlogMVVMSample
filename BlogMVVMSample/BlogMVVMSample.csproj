@@ -131,6 +131,7 @@
     <Compile Include="Forms\Model\DragAndDropModel.cs" />
     <Compile Include="Forms\Model\ExcelModel.cs" />
     <Compile Include="Forms\Model\GridAnimationModel.cs" />
+    <Compile Include="Forms\Model\LikeOperatorModel.cs" />
     <Compile Include="Forms\Model\ListModel.cs" />
     <Compile Include="Forms\Model\MessageBox2Model.cs" />
     <Compile Include="Forms\Model\MessageBoxModel.cs" />
@@ -152,6 +153,7 @@
     <Compile Include="Forms\ViewModel\DragAndDropViewModel.cs" />
     <Compile Include="Forms\ViewModel\ExcelViewModel.cs" />
     <Compile Include="Forms\ViewModel\GridAnimationViewModel.cs" />
+    <Compile Include="Forms\ViewModel\LikeOperatorViewModel.cs" />
     <Compile Include="Forms\ViewModel\ListViewModel.cs" />
     <Compile Include="Forms\ViewModel\MessageBox2ViewModel.cs" />
     <Compile Include="Forms\ViewModel\MessageBoxViewModel.cs" />
@@ -196,6 +198,9 @@
     </Compile>
     <Compile Include="Forms\View\GridAnimationView.xaml.cs">
       <DependentUpon>GridAnimationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\View\LikeOperatorView.xaml.cs">
+      <DependentUpon>LikeOperatorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\View\ListView.xaml.cs">
       <DependentUpon>ListView.xaml</DependentUpon>
@@ -309,6 +314,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\GridAnimationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\LikeOperatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
