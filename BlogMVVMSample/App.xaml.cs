@@ -16,7 +16,7 @@ namespace BlogMVVMSample
 
             base.OnStartup(e);
 
-            var form = new Forms.View.LikeOperatorView();
+            var form = new Forms.View.ResourceView();
 
             form.ShowDialog();
 

@@ -115,6 +115,7 @@
     <Compile Include="Data\DataBaseInfo.cs" />
     <Compile Include="Data\FileInfo.cs" />
     <Compile Include="Data\JobStatus.cs" />
+    <Compile Include="Data\Languages.cs" />
     <Compile Include="Data\MessageBox.cs" />
     <Compile Include="Data\PathInfo.cs" />
     <Compile Include="Data\GenderStatus.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="Forms\Model\MessageBoxModel.cs" />
     <Compile Include="Forms\Model\ParameterCommandModel.cs" />
     <Compile Include="Forms\Model\ProgressBarModel.cs" />
+    <Compile Include="Forms\Model\ResourceModel.cs" />
     <Compile Include="Forms\Model\SqlServerModel.cs" />
     <Compile Include="Forms\Model\TextBox2Model.cs" />
     <Compile Include="Forms\Model\TextBox3Model.cs" />
@@ -159,6 +161,7 @@
     <Compile Include="Forms\ViewModel\MessageBoxViewModel.cs" />
     <Compile Include="Forms\ViewModel\ParameterCommandViewModel.cs" />
     <Compile Include="Forms\ViewModel\ProgressBarViewModel.cs" />
+    <Compile Include="Forms\ViewModel\ResourceViewModel.cs" />
     <Compile Include="Forms\ViewModel\SqlServerViewModel.cs" />
     <Compile Include="Forms\ViewModel\TextBox2ViewModel.cs" />
     <Compile Include="Forms\ViewModel\TextBox3ViewModel.cs" />
@@ -220,6 +223,9 @@
     <Compile Include="Forms\View\RadioButton.xaml.cs">
       <DependentUpon>RadioButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\View\ResourceView.xaml.cs">
+      <DependentUpon>ResourceView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\View\SqlServerView.xaml.cs">
       <DependentUpon>SqlServerView.xaml</DependentUpon>
     </Compile>
@@ -237,6 +243,16 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Properties\LanguageSample.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LanguageSample.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\LanguageSample.ja-JP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LanguageSample.ja-JP.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -247,6 +263,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Properties\LanguageSample.ja-JP.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LanguageSample.ja-JP.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\LanguageSample.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LanguageSample.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -342,6 +366,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\RadioButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\ResourceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
