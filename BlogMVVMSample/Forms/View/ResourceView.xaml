@@ -8,6 +8,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:interactions="http://schemas.microsoft.com/expression/2010/interactions"
         xmlns:b="clr-namespace:BlogMVVMSample.Behaviors"
+        xmlns:p="clr-namespace:BlogMVVMSample.Properties"
         mc:Ignorable="d"
         Title="ResourceView" Height="150" Width="300">
     <Window.DataContext>
@@ -19,6 +20,8 @@
                 <x:Type TypeName="data:Languages" />
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
+        <!-- リソースファイルをキー登録 -->
+        <p:LanguageSample x:Key="languageSample" />
     </Window.Resources>
     <i:Interaction.Triggers>
         <interactions:PropertyChangedTrigger Binding="{Binding MessageInfo}" >
@@ -42,7 +45,8 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <Button Grid.Row="1" Content="メッセージボックス表示" >
+        <!-- Sourceをリソースファイルのキーとし、Pathに該当項目を入力 -->
+        <Button Grid.Row="1" Content="{Binding Source={StaticResource languageSample}, Path=Button}" >
             <Button.InputBindings>
                 <MouseBinding Command="{Binding MessageBoxCommand}" MouseAction="LeftClick" />
             </Button.InputBindings>
