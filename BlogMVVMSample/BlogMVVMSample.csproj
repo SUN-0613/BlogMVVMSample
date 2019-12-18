@@ -138,6 +138,7 @@
     <Compile Include="Forms\Model\MessageBoxModel.cs" />
     <Compile Include="Forms\Model\ParameterCommandModel.cs" />
     <Compile Include="Forms\Model\ProgressBarModel.cs" />
+    <Compile Include="Forms\Model\ResourceDictionaryModel.cs" />
     <Compile Include="Forms\Model\ResourceModel.cs" />
     <Compile Include="Forms\Model\SqlServerModel.cs" />
     <Compile Include="Forms\Model\TextBox2Model.cs" />
@@ -161,6 +162,7 @@
     <Compile Include="Forms\ViewModel\MessageBoxViewModel.cs" />
     <Compile Include="Forms\ViewModel\ParameterCommandViewModel.cs" />
     <Compile Include="Forms\ViewModel\ProgressBarViewModel.cs" />
+    <Compile Include="Forms\ViewModel\ResourceDictionaryViewModel.cs" />
     <Compile Include="Forms\ViewModel\ResourceViewModel.cs" />
     <Compile Include="Forms\ViewModel\SqlServerViewModel.cs" />
     <Compile Include="Forms\ViewModel\TextBox2ViewModel.cs" />
@@ -222,6 +224,9 @@
     </Compile>
     <Compile Include="Forms\View\RadioButton.xaml.cs">
       <DependentUpon>RadioButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\View\ResourceDictionaryView.xaml.cs">
+      <DependentUpon>ResourceDictionaryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\View\ResourceView.xaml.cs">
       <DependentUpon>ResourceView.xaml</DependentUpon>
@@ -292,6 +297,14 @@
     <Page Include="Dictionary\TextBox2Dictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Languages\en-US\LanguageDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Languages\ja-JP\LanguageDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Forms\View\CalendarView.xaml">
       <SubType>Designer</SubType>
@@ -366,6 +379,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\RadioButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\ResourceDictionaryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

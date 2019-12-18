@@ -16,9 +16,7 @@ namespace BlogMVVMSample
 
             base.OnStartup(e);
 
-            var form = new Forms.View.ResourceView();
-
-            form.ShowDialog();
+            new Forms.View.ResourceDictionaryView().ShowDialog();
 
             Shutdown();
 
