@@ -98,6 +98,7 @@
     <Compile Include="Behaviors\BehaviorBase.cs" />
     <Compile Include="Behaviors\CommonDialogBehavior.cs" />
     <Compile Include="Behaviors\GridAnimationBehavior.cs" />
+    <Compile Include="Behaviors\LanguageTriggerAction.cs" />
     <Compile Include="Behaviors\PathsDragAndDropBehavior.cs" />
     <Compile Include="Behaviors\MessageBoxBehavior.cs" />
     <Compile Include="Behaviors\TextBoxMoveFocus.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="Data\DataBaseInfo.cs" />
     <Compile Include="Data\FileInfo.cs" />
     <Compile Include="Data\JobStatus.cs" />
+    <Compile Include="Data\LanguageInfo.cs" />
     <Compile Include="Data\Languages.cs" />
     <Compile Include="Data\MessageBox.cs" />
     <Compile Include="Data\PathInfo.cs" />

@@ -3,13 +3,55 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:data="clr-namespace:BlogMVVMSample.Data"
+        xmlns:vm="clr-namespace:BlogMVVMSample.Forms.ViewModel"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:interactions="http://schemas.microsoft.com/expression/2010/interactions"
+        xmlns:b="clr-namespace:BlogMVVMSample.Behaviors"
         mc:Ignorable="d"
         Title="ResourceDictionaryView" Height="150" Width="300">
+    <i:Interaction.Triggers>
+        <interactions:PropertyChangedTrigger Binding="{Binding LanguageInfo}" >
+            <b:LanguageTriggerAction />
+        </interactions:PropertyChangedTrigger>
+    </i:Interaction.Triggers>
+    <Window.DataContext>
+        <vm:ResourceDictionaryViewModel />
+    </Window.DataContext>
     <Window.Resources>
-        <!-- ResourceDictionaryの参照設定 -->
-        <ResourceDictionary Source="/BlogMVVMSample;component/Forms/Languages/ja-JP/LanguageDictionary.xaml" />
+        <ResourceDictionary>
+
+            <!-- ResourceDictionaryの参照設定 -->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/BlogMVVMSample;component/Forms/Languages/en-US/LanguageDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <ObjectDataProvider x:Key="languages" MethodName="GetValues" ObjectType="{x:Type data:Languages}" >
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type TypeName="data:Languages" />
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+
+        </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <TextBlock Text="{StaticResource Message}" VerticalAlignment="Center" TextAlignment="Center" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <ComboBox Grid.Row="0" VerticalAlignment="Center" ItemsSource="{Binding Source={StaticResource languages}}" SelectedValue="{Binding SelectedLanguage}" >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding }" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBlock Grid.Row="1" Text="{DynamicResource Message}" VerticalAlignment="Center" TextAlignment="Center" />
+        
     </Grid>
 </Window>
