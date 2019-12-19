@@ -2,6 +2,7 @@
 using System.IO;
 using System.Threading;
 using System.Windows;
+using System.Windows.Markup;
 
 namespace BlogMVVMSample.Data
 {
@@ -107,6 +108,16 @@ namespace BlogMVVMSample.Data
 
         }
 
+        /// <summary>ResourceDictionary更新</summary>
+        public void UpdateResourceDictionary()
+        {
+
+            using (var writer = new StreamWriter(LanguageDictionary.Source.ToString()))
+            {
+                XamlWriter.Save(LanguageDictionary, writer);
+            }
+
+        }
 
     }
 

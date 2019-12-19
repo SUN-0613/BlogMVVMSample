@@ -38,12 +38,14 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         
-        <ComboBox Grid.Row="0" VerticalAlignment="Center" ItemsSource="{Binding Source={StaticResource languages}}" SelectedValue="{Binding SelectedLanguage}" >
+        <ComboBox Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Center" ItemsSource="{Binding Source={StaticResource languages}}" SelectedValue="{Binding SelectedLanguage}" >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding }" />
@@ -51,7 +53,15 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <TextBlock Grid.Row="1" Text="{DynamicResource Message}" VerticalAlignment="Center" TextAlignment="Center" />
-        
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Text="{DynamicResource Message}" VerticalAlignment="Center" TextAlignment="Center" />
+
+        <TextBox Grid.Row="2" Grid.Column="0" Text="{Binding UpdateText, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" TextAlignment="Left" />
+
+        <Button Grid.Row="2" Grid.Column="1" Margin="2" Content="ResourceDictionary更新" >
+            <Button.InputBindings>
+                <MouseBinding MouseAction="LeftClick" Command="{Binding UpdateCommand}" />
+            </Button.InputBindings>
+        </Button>
+
     </Grid>
 </Window>

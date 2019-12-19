@@ -32,8 +32,18 @@ namespace BlogMVVMSample.Forms.ViewModel
                 LanguageInfo = new LanguageInfo(_FileName, value);
                 CallPropertyChanged(nameof(LanguageInfo));
 
+                // テキスト更新
+                UpdateText = LanguageInfo.LanguageDictionary["Message"].ToString();
+                CallPropertyChanged(nameof(UpdateText));
+
             }
         }
+
+        /// <summary>ResourceDictionary更新用テキスト</summary>
+        public string UpdateText { get; set; }
+
+        /// <summary>ResourceDictionary更新コマンド</summary>
+        public DelegateCommand UpdateCommand { get; private set; }
 
         #endregion
 
@@ -42,6 +52,17 @@ namespace BlogMVVMSample.Forms.ViewModel
         {
 
             SelectedLanguage = LanguageInfo.SelectedLanguage;
+
+            UpdateCommand = new DelegateCommand(
+                () => 
+                {
+
+                    // ResourceDictionaryの値を更新してファイルに保存
+                    LanguageInfo.LanguageDictionary["Message"] = UpdateText;
+                    LanguageInfo.UpdateResourceDictionary();
+
+                },
+                () => true);
 
         }
 
