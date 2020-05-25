@@ -1,0 +1,24 @@
+﻿<Window x:Class="BlogMVVMSample.Forms.View.TimePickerView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:BlogMVVMSample.UserControls"
+        xmlns:vm="clr-namespace:BlogMVVMSample.Forms.ViewModel"
+        mc:Ignorable="d"
+        Title="TimePickerView" Height="80" Width="200"
+        WindowStyle="ToolWindow">
+    <Window.DataContext>
+        <vm:TimePickerViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <uc:TimePicker SelectedTime="{Binding SelectedTime}" />
+        <TextBlock Grid.Row="1" Text="{Binding SelectedTime}" HorizontalAlignment="Center" />
+
+    </Grid>
+</Window>

@@ -16,7 +16,7 @@ namespace BlogMVVMSample
 
             base.OnStartup(e);
 
-            new Forms.View.ResourceDictionaryView().ShowDialog();
+            new Forms.View.TimePickerView().ShowDialog();
 
             Shutdown();
 

@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="BlogMVVMSample.UserControls.TimePicker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" >
+    <UserControl.Resources>
+        <Style x:Key="comboBoxItemStyle" TargetType="ComboBoxItem" >
+            <Setter Property="HorizontalContentAlignment" Value="Right" />
+        </Style>
+        <Style x:Key="itemTextBlock" TargetType="TextBlock" >
+            <Setter Property="TextAlignment" Value="Right" />
+            <Setter Property="Text" Value="{Binding StringFormat={}{0:00}}" />
+        </Style>
+        <DataTemplate x:Key="comboBoxItemTemplate" >
+            <TextBlock Style="{StaticResource itemTextBlock}" />
+        </DataTemplate>
+        <Style TargetType="ComboBox">
+            <Setter Property="HorizontalContentAlignment" Value="Right" />
+            <Setter Property="ItemContainerStyle" Value="{StaticResource comboBoxItemStyle}" />
+            <Setter Property="ItemTemplate" Value="{StaticResource comboBoxItemTemplate}" />
+        </Style>
+        <Style TargetType="TextBlock" >
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Text" Value=" : " />
+        </Style>
+    </UserControl.Resources>
+    <StackPanel Orientation="Horizontal" >
+        <ComboBox ItemsSource="{Binding Hours, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" SelectedItem="{Binding SelectedHour, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" />
+        <TextBlock />
+        <ComboBox ItemsSource="{Binding Minutes, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" SelectedItem="{Binding SelectedMinute, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" />
+        <TextBlock />
+        <ComboBox ItemsSource="{Binding Seconds, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" SelectedItem="{Binding SelectedSecond, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" />
+    </StackPanel>
+</UserControl>

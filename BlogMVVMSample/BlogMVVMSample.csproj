@@ -93,6 +93,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Forms\Model\TimePickerModel.cs" />
+    <Compile Include="Forms\ViewModel\TimePickerViewModel.cs" />
+    <Compile Include="Forms\View\TimePickerView.xaml.cs">
+      <DependentUpon>TimePickerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TimePicker.xaml.cs">
+      <DependentUpon>TimePicker.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Behaviors\BehaviorBase.cs" />
@@ -407,6 +415,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\TextBoxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\TimePickerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\TimePicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
